@@ -58,7 +58,8 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
 
     - [Link to t2linux/Guide/Pre-install](https://wiki.t2linux.org/guides/preinstall/).
     - Download the iso files and follow distribution specific guide.
-    - Below are the currently available installer ISOs for download:  
+    - Below are the currently available installer ISOs for download:
+    <br>  
 
     | Distribution     | Resource                 | Link                                                                                                                |
     | ---------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------- |
@@ -70,7 +71,7 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
     | NixOS            | T2 Linux NixOS ISO       | [NixOS T2 ISO repository](https://github.com/t2linux/nixos-t2-iso)                           |
     | Ubuntu & flavors | T2 Ubuntu releases       | [T2 Ubuntu releases](https://github.com/t2linux/T2-Ubuntu/releases/latest)                   |
     | Linux Mint       | T2 Mint releases         | [T2 Mint releases](https://github.com/t2linux/T2-Mint/releases/latest)                       |
-
+     <br>
 
 3. Basic setup: ***I did not need to do any of these steps*** as this section is mainly for:
 
