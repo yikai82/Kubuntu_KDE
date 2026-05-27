@@ -107,7 +107,8 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
 
 - Check Kubuntu and its Kernel version by running the following command in Konsole/bash:
 
-    ```bash 
+    ```bash
+    # bash 
     {
     echo "=== Kubuntu Version ==="
     lsb_release -a
