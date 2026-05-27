@@ -16,12 +16,12 @@ Fortunately, I found the [t2linux wiki](https://wiki.t2linux.org/) webpage, whic
 
 
 > [!WARNING]  
-> Once you have successfully installed Linux-T2, **avoid blindly updating everything at once as it may break the system or cause minor issues**. In particular, be cautious with full system upgrades such as `sudo apt upgrade` or `sudo apt full-upgrade`. A safer approach is to update them in batches and only update what is necessary. This is not only specific to Linux-T2, but generally applies to any Linux distribution.
+> <<h4 align="center"><i>Once you have successfully installed Linux-T2, **avoid blindly updating everything at once as it may break the system or cause minor issues**. In particular, be cautious with full system upgrades such as</i> `sudo apt upgrade` <i>or </i>`sudo apt full-upgrade`<i>. A safer approach is to update them in batches and only update what is necessary. This is not only specific to Linux-T2, but generally applies to any Linux distribution.</h4><p>  
 >    
 
 
-**Disclaimer**: *I have made every effort to ensure the accuracy of this document, but errors may still be present, and the system may break.*  
-*Feel free to leave any comments/thoughts. Thank you!*
+<i><h4 align="center"><b> Disclaimer</b>: I have made every effort to ensure the accuracy of this document, but errors may still be present, and the system may break.  
+Feel free to leave any comments/thoughts. Thank you!</h4><p>  
 
 
 ## My MacBook Pro 2019 Linux-T2
