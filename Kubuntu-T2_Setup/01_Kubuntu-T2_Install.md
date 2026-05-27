@@ -58,7 +58,7 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
 
     - [Link to t2linux/Guide/Pre-install](https://wiki.t2linux.org/guides/preinstall/).
     - Download the iso files and follow distribution specific guide.
-    - Below are the currently available installer ISOs for download:
+    - Below are the currently available installer ISOs for download:  
 
     | Distribution     | Resource                 | Link                                                                                                                |
     | ---------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------- |
