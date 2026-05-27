@@ -42,7 +42,6 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
  <!-- sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   -->
 
 
---
 ## Installation Steps
 
 ### Main Step: 
@@ -55,7 +54,7 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
     - Go to the **Guide** section and follow along.
 
 
-2. **Pre-installation steps: 
+2. **Pre-installation** steps: 
 
     - [Link to t2linux/Guide/Pre-install](https://wiki.t2linux.org/guides/preinstall/).
     - Download the iso files and follow distribution specific guide.
@@ -73,7 +72,6 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
     | Linux Mint       | T2 Mint releases         | [T2 Mint releases](https://github.com/t2linux/T2-Mint/releases/latest)                       |
 
 
-
 3. Basic setup: ***I did not need to do any of these steps*** as this section is mainly for:
 
     - If you have installed Linux using an official ISO, instead of a T2 ISO.
@@ -84,7 +82,7 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
 
 ### Wi-Fi 
 
-4. Wi-Fi and Bluetooth: Use **Method 3**
+- Wi-Fi and Bluetooth: Use **Method 3**
 
     - [Guide: Wi-Fi and Bluetooth](https://wiki.t2linux.org/guides/wifi-bluetooth/) 
     - **Method 3: Create a Linux specific package which can be installed using a package manager**
@@ -124,4 +122,4 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
 - Testing internet, adjust screen brightness etc.  
 
 ## Reference
-1. [t2linux wiki](https://wiki.t2linux.org/)
+-  [t2linux wiki](https://wiki.t2linux.org/)
