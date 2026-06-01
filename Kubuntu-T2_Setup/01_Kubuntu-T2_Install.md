@@ -10,6 +10,8 @@ The **MBP2019 16-inch** (i9 2.3 GHz 8C, 16GB RAM, AMD Radeon 5500M) cost CAD $35
 
 Fortunately, I found the [t2linux wiki](https://wiki.t2linux.org/) webpage, which has a very detailed description on how to install Linux on a T2 Mac. Below, I document the steps on how I turned a broken 2019 MBP into a Linux AI/ML or Data Science Learning Machine. Honestly, the i9-9880H is still very powerful today in 2026. 
 
+
+---
 > [!NOTE]  
 > If you are comfortable with Linux, feel free to jump to [installation roadmap](https://wiki.t2linux.org/roadmap/) and [Guide: Pre-installation](https://wiki.t2linux.org/guides/preinstall/) and follow the [distribution specific guide](https://wiki.t2linux.org/distributions/overview/). 
 > 2. I am a big fan of Kubuntu (Ubuntu + KDE Plasma), so this guide is mainly for Kubuntu.  
@@ -22,8 +24,10 @@ Fortunately, I found the [t2linux wiki](https://wiki.t2linux.org/) webpage, whic
 <i><h4 align="center">Disclaimer: I have made every effort to ensure the accuracy of this document, but errors may still be present, and the system may break.  
 Feel free to leave any comments/thoughts. Thank you!</h4><p>  
 
+<br>  
 
-## My MacBook Pro 2019 Linux-T2
+---
+### My MacBook Pro 2019 Linux-T2
 
 <div align="left">
   <div style="margin: 2px 0;">
@@ -41,7 +45,7 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
 
  <!-- sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   -->
 
-
+---
 ## Installation Steps
 
 ### Main Step: 
@@ -78,7 +82,7 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
     - If you have installed Linux using an official ISO, instead of a T2 ISO.
     - For those who wish to encrypt their disk drives using LUKS or some other similar software.
     - If some functionality related to T2 Macs is broken
-    - Installing kernel for T2 support: 
+    - Installing kernel for T2 support:  
 
 
 ### Wi-Fi 
@@ -122,6 +126,7 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
     This will save everything into a timestamped file: kubuntu-t2-status-yyyymmdd.txt
 
 - Testing internet, adjust screen brightness etc.  
+
 
 ## Reference
 -  [t2linux wiki](https://wiki.t2linux.org/)
