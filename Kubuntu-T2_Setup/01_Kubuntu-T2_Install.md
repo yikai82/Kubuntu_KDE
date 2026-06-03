@@ -18,11 +18,11 @@ Fortunately, I found the [t2linux wiki](https://wiki.t2linux.org/) webpage, whic
 
 
 > [!WARNING]  
-> Once you have successfully installed Linux-T2, **avoid blindly updating everything at once as it may break the system or cause minor issues**. In particular, be cautious with full system upgrades such as `sudo apt upgrade` or `sudo apt full-upgrade`. A safer approach is to update them in batches and only update what is necessary. This is not only specific to Linux-T2, but generally applies to any Linux distribution. 
+> Once you have successfully installed Linux-T2, `avoid blindly updating everything at once` as it may break the system or cause minor issues. In particular, be cautious with full system upgrades such as `sudo apt upgrade` or `sudo apt full-upgrade`. A safer approach is to update them in batches and only update what is necessary. This is not only specific to Linux-T2, but generally applies to any Linux distribution. 
 
 
-<i><h4 align="center">Disclaimer: I have made every effort to ensure the accuracy of this document, but errors may still be present, and the system may break.  
-Feel free to leave any comments/thoughts. Thank you!</h4><p>  
+<i><p align="center"><b>Disclaimer</b>: I have made every effort to ensure the accuracy of this document, but errors may still be present, and the system may break with a wrong code  
+Feel free to leave any comments/thoughts. Thank you!<p>  
 
 <br>  
 
