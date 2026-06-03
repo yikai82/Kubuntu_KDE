@@ -17,7 +17,7 @@ Lastest Update: 2026-05-15
   - General Behavior: Clicking files or folders: [Selects them]
       
 ### 3. Windows Management
-  ![NOTE-green](https://img.shields.io/badge/NOTE-228B22):
+  **Note**:   
   1. If left empty, it means that I left as [default values].
   2. If some options migh be not present in the newer Kubuntu 26/KDE 6
 
@@ -87,7 +87,6 @@ Lastest Update: 2026-05-15
   - TBA 
   
   
---
 ### KDE Wallet
   - A secure, integrated password management system for the KDE Plasma desktop environment that stores sensitive information like WiFi password, app credentials
   
@@ -137,7 +136,6 @@ Lastest Update: 2026-05-15
 **Note**: MX-25.1 already has pam integration, only need to copy`kdewallet.kwl` and `kdewallet.salt` over to the default kwalletd location
 
 
---
 ### Dolphin
   - The Kubuntu's download folder is default grouped by date (i feel not as easy to use):
 
