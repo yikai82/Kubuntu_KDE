@@ -52,16 +52,16 @@
 ### 4. Shortcut
   **Note: Meta = Super Key = Win Key/Command Key**
   
-  - Konsole: Ctrl+Alt(Opt)+T
-  - Spectacle: **Meta+Shift+S**
+  - Konsole: `Ctrl + Alt(Opt) + T`
+  - Spectacle: **`Meta + Shift + S`**
   - Switch One Desktop Down:  
   - Switch One Desktop Up: 
-  - Switch One Desktop to the Lefe: [**Ctrl+Meta+Left**]/[**Ctrl+Alt+Left**]
-  - Switch One Desktop to the Right: [**Ctrl+Meta+Right**]/[**Ctrl+Alt+Right**]
-  - Toggle Windows - All Desktop: **Meta + Tab**
-  - Window One Destop to the Left (Move the window to the Left Desktop): **Meta+Left**
-  - Window One Destop to the Right (Move the window to the Right Desktop): Meta+Right
-  - Lock Screen: [Meta+L]
+  - Switch One Desktop to the Lefe: **`Ctrl + Meta + Left`**/**`Ctrl + Alt + Left`**
+  - Switch One Desktop to the Right: **`Ctrl + Meta + Right`**/**`Ctrl + Alt + Right`**
+  - Toggle Windows - All Desktop: **`Meta + Tab`**
+  - Window One Destop to the Left (Move the window to the Left Desktop): **`Meta + Left`**
+  - Window One Destop to the Right (Move the window to the Right Desktop): **`Meta + Right`**
+  - Lock Screen: **`Meta + L`**
 
 
 ### 5. Startup and Shutdown
