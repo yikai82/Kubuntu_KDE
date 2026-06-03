@@ -1,6 +1,6 @@
 # Kubuntu (or MX_KDE) Desktop Environemnt Setup
 
-Lastest Update: 2026-05-15
+Lastest Update: **`2026-05-15`**
 
 ## System Setting
 
