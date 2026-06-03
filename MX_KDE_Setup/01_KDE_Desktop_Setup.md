@@ -1,6 +1,8 @@
-## Kubuntu (or MX_KDE) Desktop Environemnt Setup
+# Kubuntu (or MX_KDE) Desktop Environemnt Setup
 
 Lastest Update: 2026-05-15
+
+## System Setting
 
 ### 1. Appearance
 - Global Theme: Breeze Dark
@@ -82,12 +84,7 @@ Lastest Update: 2026-05-15
   - Mouse & Touchpad > Screen Edges: [Activation delay] = `[125 ms]`
   - Sound > Configure Volumne Controls > Volume change step = `[2%]`
 
-
-### Kate Color Profile 
-  - TBA 
-  
-  
-### KDE Wallet
+### 9. KDE Wallet
   - A secure, integrated password management system for the KDE Plasma desktop environment that stores sensitive information like WiFi password, app credentials
   
   - Only need if you want system to manage your password, or you have a previous wallet that you want to bring it over.
@@ -136,7 +133,8 @@ Lastest Update: 2026-05-15
 **Note**: MX-25.1 already has pam integration, only need to copy`kdewallet.kwl` and `kdewallet.salt` over to the default kwalletd location
 
 
-### Dolphin
+---
+## Dolphin
   - The Kubuntu's download folder is default grouped by date (i feel not as easy to use):
 
     - **To Fix:** 
@@ -146,4 +144,13 @@ Lastest Update: 2026-05-15
       3) Move it to the right column and click Apply.
       4) Click the button on your toolbar to toggle it off.
       5) Ensure "Remember display style for each folder" is checked.
+
+
+---
+## Kate  
+  - TBA 
+  
+  
+
+
 
