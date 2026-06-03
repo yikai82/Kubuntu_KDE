@@ -58,7 +58,7 @@
   - Switch One Desktop to the Right: [**Ctrl + Meta + Right**]/[**Ctrl + Alt + Right**]
   - Toggle Windows - **All Desktop**: [**Meta + Tab**]
   - Window One Destop to the Left (Move the window to the Left Desktop): [**Meta + Left**]/**[Alt(or Opt) + Left]**
-  - Window One Destop to the Right (Move the window to the Right Desktop): [**Meta + Right**]/[**Alt (or Opt) + R**]
+  - Window One Destop to the Right (Move the window to the Right Desktop): [**Meta + Right**]/[**Alt (or Opt) + Right**]
   - Lock Screen: **Meta + L**
 
 
