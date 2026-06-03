@@ -1,4 +1,4 @@
-# Kubuntu (or MX_KDE) Desktop Environemnt Setup
+# MX_KDE Desktop Environemnt Setup
 
 #### Lastest Update: **`2026-05-15`**
 
@@ -145,8 +145,17 @@
 
 
 ---
-## Kate  
-  - TBA 
+## Kate
+ - TBA
+
+
+---
+## Kosole
+
+ - TBA 
+
+
+
   
   
 
