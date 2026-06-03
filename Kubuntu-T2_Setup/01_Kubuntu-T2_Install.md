@@ -22,7 +22,7 @@ Fortunately, I found the [t2linux wiki](https://wiki.t2linux.org/) webpage, whic
 
 
 <i><p align="center"><b>Disclaimer</b>: I have made every effort to ensure the accuracy of this document, but errors may still be present, and the system may break with a wrong code  
-Feel free to leave any comments/thoughts. Thank you!<p>  
+Feel free to leave any comments/thoughts. Thank you!<p></i>  
 
 <br>  
 
