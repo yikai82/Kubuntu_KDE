@@ -14,7 +14,7 @@
 Feel free to leave any comments/thoughts. Thank you!<p></i>  
 
 ---
-## System 
+## System  
 
 <div align="left">
   <div style="margin: 2px 0;">
@@ -63,6 +63,7 @@ System: Acer Nitro AN515-45
 ### Step 
   1. Boot into Windows and shrink Windows partition from inside Windows (Use `Disk Management`) to create the free space appears AFTER C. For my **1 TB storage, I only preserve 160 GB** for Windows as most of my data will be in Linux for my work.  
   
+
   2. Press **`F2`** to enter BIOS to change Acer's BIOS setting
     - Secure Boot: `Enable`
     - Boot Menu: `Enbale`    
@@ -70,7 +71,7 @@ System: Acer Nitro AN515-45
   ⚠️ For Acer laptops, you need to enable Secure Boot first and set a security PIN to access the boot menu for booting from a USB drive.
 
 
-  3. Press `F10` or `F12` to Boot into a live Linux USB and use **`GParted`** to Move partitions. Typical operation:
+  3. Press `F10` or `F12` to boot into a live Linux USB and use **`GParted`** to move partitions. Typical operation:
   
       `[EFI-100MB]` | `[MSR-16MB]` | `[Windows]`
 
@@ -85,6 +86,7 @@ System: Acer Nitro AN515-45
       sudo apt install GParted
       ```
 
+
   4. **Enlarge ESP** by moving the each parition one by one and test in between to ensure you can still boot into the Windows.  
 
       (1) Move Windows right     
@@ -92,19 +94,34 @@ System: Acer Nitro AN515-45
 
       (2) Move MSR right  
 
-      (3) Enlarge ESP   
+      (3) Enlarge ESP  
 
-  ⚠️ ⚠️ Move Paritition could cause data loss, make sure you back all the important data. Do not delete any partition.  
+  ⚠️ ⚠️ Moving Paritition could cause data loss, make sure you back up all the important data. We Do **NOT** need to delete any partition that created by the manufacturers/Windows.
 
-  5. Once the ESP is expanded and you confirm that Windows still boots correctly, you can use a live USB to partition the Linux drive. You can use KDE Partition Manager or GParted (you may need to install it, since the live USB environment is not persistent).  
-  
+  ⚠️ ⚠️ Make sure all the partitions were unmounted before moving them. In general, GParted does not allow moving a mounted partition.
+
+
+  5. Once the ESP is expanded and you confirm that Windows still boots correctly, you can use a live USB to partition the Linux drive. You can use KDE Partition Manager or GParted (you may need to install it, since the live USB environment is not persistent).   
+
+      - You can also parition the disk during the actual installation step, but I find it is more reliable by just have a sepeate partition step before the actual installation.  
+    
+
   6. Linux Disk Partition: Using a four-partition layout (swap, root, home, data) to facilitate data backup  
     - Total space: 1 TB
     - Linux swap: 64 GB (65,536 MB)
     - Root (/): 180 GB (184,320 MB)
     - Home (/home): 320 GB (327,680 MB)
-    - Leave the remaining space as unallocated for setting up a **`data`** partition later.  
+    - Leave the remaining space as unallocated for setting up a **`data`** partition later.   
+
+  7. Once the partitioning step is completed, restart the computer and boot from the Kubuntu live USB. Follow the on-screen instructions to proceed with the installation steps. This process is very similar to Ubuntu, but with a different interface. You can also  refer to the installation guide for [Kubuntu 22.04](https://kubuntu-docs.readthedocs.io/en/22.04.0/installation.html) 
+  
+      - 👉 We will need to set our partitions manually. You can refer to the [Manual Partition](https://documentation.ubuntu.com/desktop/en/latest/tutorial/install-ubuntu-desktop/#manual-partitioning) guide.
+
+      - **`Install /boot/efi at the EFI partition and do **NOT** format. Let GRUB install alongside Windows Boot Manager`**
+
+      - Leave the boot flag untouch as we are re-using the existing Windows EFI Boot Manager.
     
+
   7. Final Partition Map:  
   <img src="image/Linux_Disk.png" alt="Disk Partition" width="1080"> 
 
