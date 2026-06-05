@@ -264,59 +264,60 @@ System: Acer Nitro AN515-45
     - Modified the color you prefer
     - My Setup: Konsole Breeze Color Palette
 
-  ####  Background & Foreground
+#### Background & Foreground
 
-  | Name | RGB | Hex |
-  |--------|--------|--------|
-  | Background | 35,38,39 | #232627 |
-  | Background Faint | 49,54,59 | #31363B |
-  | Background Intense | 0,0,0 | #000000 |
-  | Foreground | 252,252,252 | #FCFCFC |
-  | Foreground Faint | 239,240,241 | #EFF0F1 |
-  | Foreground Intense | 255,170,0 | #FFAA00 |
+| Name | Color | RGB | Hex |
+|------|-------|-----|-----|
+| Background | ![](https://placehold.co/40x20/232627/232627.png) | 35,38,39 | `#232627` |
+| Background Faint | ![](https://placehold.co/40x20/31363B/31363B.png) | 49,54,59 | `#31363B` |
+| Background Intense | ![](https://placehold.co/40x20/000000/000000.png) | 0,0,0 | `#000000` |
+| Foreground | ![](https://placehold.co/40x20/FCFCFC/FCFCFC.png) | 252,252,252 | `#FCFCFC` |
+| Foreground Faint | ![](https://placehold.co/40x20/EFF0F1/EFF0F1.png) | 239,240,241 | `#EFF0F1` |
+| Foreground Intense | ![](https://placehold.co/40x20/FFAA00/FFAA00.png) | 255,170,0 | `#FFAA00` |
+
+---
+
+#### ANSI Colors (0–7)
+
+| Color | Normal | Faint | Intense |
+|-------|--------|-------|---------|
+| Black (0) | ![](https://placehold.co/40x20/232627/232627.png) `#232627` | ![](https://placehold.co/40x20/31363B/31363B.png) `#31363B` | ![](https://placehold.co/40x20/7F8C8D/7F8C8D.png) `#7F8C8D` |
+| Red (1) | ![](https://placehold.co/40x20/ED1515/ED1515.png) `#ED1515` | ![](https://placehold.co/40x20/783228/783228.png) `#783228` | ![](https://placehold.co/40x20/EB4632/EB4632.png) `#EB4632` |
+| Green (2) | ![](https://placehold.co/40x20/41C841/41C841.png) `#41C841` | ![](https://placehold.co/40x20/5AC878/5AC878.png) `#5AC878` | ![](https://placehold.co/40x20/3CDC3C/3CDC3C.png) `#3CDC3C` |
+| Yellow (3) | ![](https://placehold.co/40x20/F67400/F67400.png) `#F67400` | ![](https://placehold.co/40x20/B65619/B65619.png) `#B65619` | ![](https://placehold.co/40x20/FDBC4B/FDBC4B.png) `#FDBC4B` |
+| Blue (4) | ![](https://placehold.co/40x20/3296F0/3296F0.png) `#3296F0` | ![](https://placehold.co/40x20/1B668F/1B668F.png) `#1B668F` | ![](https://placehold.co/40x20/3CAAF0/3CAAF0.png) `#3CAAF0` |
+| Magenta (5) | ![](https://placehold.co/40x20/F096D2/F096D2.png) `#F096D2` | ![](https://placehold.co/40x20/B170FC/B170FC.png) `#B170FC` | ![](https://placehold.co/40x20/FF55FF/FF55FF.png) `#FF55FF` |
+| Cyan (6) | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` | ![](https://placehold.co/40x20/1EF0E6/1EF0E6.png) `#1EF0E6` |
+| White (7) | ![](https://placehold.co/40x20/FCFCFC/FCFCFC.png) `#FCFCFC` | ![](https://placehold.co/40x20/63686D/63686D.png) `#63686D` | ![](https://placehold.co/40x20/FFFFFF/FFFFFF.png) `#FFFFFF` |
 
   ---
 
-  #### ANSI Colors (0–7)
+#### Quick Reference
 
-  | Color | Normal | Faint | Intense |
-  |---------|---------|---------|---------|
-  | Black (0) | #232627 | #31363B | #7F8C8D |
-  | Red (1) | #ED1515 | #783228 | #EB4632 |
-  | Green (2) | #41C841 | #5AC878` | #3CDC3C |
-  | Yellow (3) | #F67400 | #B65619 | #FDBC4B |
-  | Blue (4) | #3296F0 | #1B668F | #3CAAF0 |
-  | Magenta (5) | #F096D2 | #B170FC | #FF55FF |
-  | Cyan (6) | #1EB4C8 | #1EB4C8 | #1EF0E6 |
-  | White (7) | #FCFCFC | #63686D | #FFFFFF |
+| ANSI | Color | Hex |
+|------|-------|-----|
+| Color0 (Black) | ![](https://placehold.co/40x20/232627/232627.png) | `#232627` |
+| Color1 (Red) | ![](https://placehold.co/40x20/ED1515/ED1515.png) | `#ED1515` |
+| Color2 (Green) | ![](https://placehold.co/40x20/41C841/41C841.png) | `#41C841` |
+| Color3 (Yellow) | ![](https://placehold.co/40x20/F67400/F67400.png) | `#F67400` |
+| Color4 (Blue) | ![](https://placehold.co/40x20/3296F0/3296F0.png) | `#3296F0` |
+| Color5 (Magenta) | ![](https://placehold.co/40x20/F096D2/F096D2.png) | `#F096D2` |
+| Color6 (Cyan) | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) | `#1EB4C8` |
+| Color7 (White) | ![](https://placehold.co/40x20/FCFCFC/FCFCFC.png) | `#FCFCFC` |
 
-  ---
+#### Bright Variants
 
-  #### Quick Reference
+| ANSI | Color | Hex |
+|------|-------|-----|
+| Bright Black | ![](https://placehold.co/40x20/7F8C8D/7F8C8D.png) | `#7F8C8D` |
+| Bright Red | ![](https://placehold.co/40x20/EB4632/EB4632.png) | `#EB4632` |
+| Bright Green | ![](https://placehold.co/40x20/3CDC3C/3CDC3C.png) | `#3CDC3C` |
+| Bright Yellow | ![](https://placehold.co/40x20/FDBC4B/FDBC4B.png) | `#FDBC4B` |
+| Bright Blue | ![](https://placehold.co/40x20/3CAAF0/3CAAF0.png) | `#3CAAF0` |
+| Bright Magenta | ![](https://placehold.co/40x20/FF55FF/FF55FF.png) | `#FF55FF` |
+| Bright Cyan | ![](https://placehold.co/40x20/1EF0E6/1EF0E6.png) | `#1EF0E6` |
+| Bright White | ![](https://placehold.co/40x20/FFFFFF/FFFFFF.png) | `#FFFFFF` |
 
-  | ANSI | Hex |
-  |------|------|
-  | Color0 (Black) | `#232627` |
-  | Color1 (Red) | `#ED1515` |
-  | Color2 (Green) | `#41C841` |
-  | Color3 (Yellow) | `#F67400` |
-  | Color4 (Blue) | `#3296F0` |
-  | Color5 (Magenta) | `#F096D2` |
-  | Color6 (Cyan) | `#1EB4C8` |
-  | Color7 (White) | `#FCFCFC` |
-
-  #### Bright Variants
-
-  | ANSI | Hex |
-  |------|------|
-  | Bright Black | `#7F8C8D` |
-  | Bright Red | `#EB4632` |
-  | Bright Green | `#3CDC3C` |
-  | Bright Yellow | `#FDBC4B` |
-  | Bright Blue | `#3CAAF0` |
-  | Bright Magenta | `#FF55FF` |
-  | Bright Cyan | `#1EF0E6` |
-  | Bright White | `#FFFFFF` |
 
 - Scripts to run to evaluate the color 
   - Basic ANSI Color Test Script
