@@ -117,7 +117,7 @@ System: Acer Nitro AN515-45
   
       - 👉 We will need to set our partitions manually. You can refer to the [Manual Partition](https://documentation.ubuntu.com/desktop/en/latest/tutorial/install-ubuntu-desktop/#manual-partitioning) guide.
 
-      - **`Install /boot/efi at the EFI partition and do **NOT** format. Let GRUB install alongside Windows Boot Manager`**
+      - **`Install /boot/efi at the ESP (aka EFI) partition and do **NOT** format. Let GRUB install alongside Windows Boot Manager`**
 
       - Leave the boot flag untouch as we are re-using the existing Windows EFI Boot Manager.
     
