@@ -91,7 +91,7 @@ System: Acer Nitro AN515-45
       ⚠️ I prefer **move** here because shrinking mean we remove something at the front.  
 
       (2) Move MSR right  
-        
+
       (3) Enlarge ESP   
 
   ⚠️ ⚠️ Move Paritition could cause data loss, make sure you back all the important data. Do not delete any partition.  
@@ -106,7 +106,7 @@ System: Acer Nitro AN515-45
     - Leave the remaining space as unallocated for setting up a **`data`** partition later.  
     
   7. Final Partition Map:  
-  <img src="image/Linux_Disk.png" alt="Disk Partition" width="800"> 
+  <img src="image/Linux_Disk.png" alt="Disk Partition" width="1080"> 
 
 
 
