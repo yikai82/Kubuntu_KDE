@@ -39,11 +39,11 @@ System: Acer Nitro AN515-45
 ---
 ## Content
 
-* [1. Installation](#installation)  
-* [2. System Setting](#system-setting)  
-* [3. Dolphin](#dolphin)  
-* [4. Konsole](#konsole)  
-* [5. Kate](#kate)  
+- [1. Installation](#installation)  
+- [2. System Setting](#system-setting)  
+- [3. Dolphin](#dolphin)  
+- [4. Konsole](#konsole)  
+- [5. Kate](#kate)  
 
 ---
 ## Installation 
@@ -59,6 +59,17 @@ System: Acer Nitro AN515-45
 
   ⚠️ I highly recommand verify the SHA256sum (hash) of the ISO file first before installation.
 
+  ```bash
+  sha256sum kubuntu-26.04-desktop-amd64.iso > checksum.txt
+  # replace the *.iso name to the actual file name. 
+
+  # copy-paste the checksum and file name from the text file into the command below: 
+  echo "the copy-paste text here" | sha256sum -c
+  ```
+
+
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
+
 ---
 ### Step 
   1. Boot into Windows and shrink Windows partition from inside Windows (Use `Disk Management`) to create the free space appears AFTER C. For my **1 TB storage, I only preserve 160 GB** for Windows as most of my data will be in Linux for my work.  
@@ -71,21 +82,26 @@ System: Acer Nitro AN515-45
   ⚠️ For Acer laptops, you need to enable Secure Boot first and set a security PIN to access the boot menu for booting from a USB drive.
 
 
-  3. Press `F10` or `F12` to boot into a live Linux USB and use **`GParted`** to move partitions. Typical operation:
+  3. Press `F12` to boot from a live Kubuntu USB (or other Linux distros) and use **`GParted`** to move partitions. Typical operation:
   
       `[EFI-100MB]` | `[MSR-16MB]` | `[Windows]`
 
       Need to become:
 
-      **`[ESP-600MB]`** | **`[MSR016MB]`** | `[Windows-160GB]` | **`[Rest for Linux ~794GB]`**
+      **`[ESP-600MB]`** | **`[MSR-16MB]`** | `[Windows-160GB]` | **`[Rest for Linux ~794GB]`**
     
-      👉 You can use any Linux Distro that comes with GParted. If you are using the Kubuntu Live USB, you can install `GParted` in terminal when booting into the live USB. 
+      👉 You can use any Linux Distro that comes with GParted. If you are using the Kubuntu Live USB, you can install `GParted` in terminal when booting into the live USB.   
+
+      💡 GParted and KDE Partition Manager share the same underlying backend, so their capabilities are nearly identical — KDE Partition Manager just has a more polished UI for KDE users. **`For sensitive operations like moving a Windows ESP, GParted is the safer choice`** due to its longer track record and better community documentation
 
       ```bash
       sudo apt update
       sudo apt install GParted
       ```
 
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
+
+---
 
   4. **Enlarge ESP** by moving the each parition one by one and test in between to ensure you can still boot into the Windows.  
 
@@ -96,22 +112,30 @@ System: Acer Nitro AN515-45
 
       (3) Enlarge ESP  
 
-  ⚠️ ⚠️ Moving Paritition could cause data loss, make sure you back up all the important data. We Do **NOT** need to delete any partition that created by the manufacturers/Windows.
+      ⚠️ ⚠️ Restart the computer between each step and boot into Windows before continuing to the next step. 
 
-  ⚠️ ⚠️ Make sure all the partitions were unmounted before moving them. In general, GParted does not allow moving a mounted partition.
+      ⚠️ ⚠️ Moving Paritition could cause data loss, make sure you back up all the important data. We Do **NOT** need to delete any partition that created by the manufacturers/Windows.
+
+      ⚠️ ⚠️ Make sure all the partitions were unmounted before moving them. In general, GParted does not allow moving a mounted partition.
 
 
   5. Once the ESP is expanded and you confirm that Windows still boots correctly, you can use a live USB to partition the Linux drive. You can use KDE Partition Manager or GParted (you may need to install it, since the live USB environment is not persistent).   
 
-      - You can also parition the disk during the actual installation step, but I find it is more reliable by just have a sepeate partition step before the actual installation.  
+      - 💡 You can also parition the disk during the actual installation step, but I find it is more reliable by just have a sepeate partition step before the actual installation.  
     
 
   6. Linux Disk Partition: Using a four-partition layout (swap, root, home, data) to facilitate data backup  
-    - Total space: 1 TB
-    - Linux swap: 64 GB (65,536 MB)
-    - Root (/): 180 GB (184,320 MB)
-    - Home (/home): 320 GB (327,680 MB)
-    - Leave the remaining space as unallocated for setting up a **`data`** partition later.   
+    - Total space: 1 TB  
+    - Linux swap: 64 GB (65,536 MB)  
+    - Root (/): 180 GB (184,320 MB)   
+    - Home (/home): 320 GB (327,680 MB)  
+    - Leave the remaining space as **unallocated** for setting up a **`data`** partition later.     
+
+
+
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
+
+---
 
   7. Once the partitioning step is completed, restart the computer and boot from the Kubuntu live USB. Follow the on-screen instructions to proceed with the installation steps. This process is very similar to Ubuntu, but with a different interface. You can also  refer to the installation guide for [Kubuntu 22.04](https://kubuntu-docs.readthedocs.io/en/22.04.0/installation.html) 
   
@@ -122,8 +146,86 @@ System: Acer Nitro AN515-45
       - Leave the boot flag untouch as we are re-using the existing Windows EFI Boot Manager.
     
 
-  7. Final Partition Map:  
+  8. Final Partition Map:  
   <img src="image/Linux_Disk.png" alt="Disk Partition" width="1080"> 
+
+
+  9. Once installation completed, log into the system and use KDE Partition Manager to partition the rest unallocate space as data.
+
+      - In the terminal, run the following command:  
+
+      ```bash
+      ## 1. Create the mount point
+      mkdir -p ~/mnt/Data 
+
+      ## 2. Get the partition UUID  
+      sudo blkid /dev/nvme0n1p8  
+                    
+      # Output will look like:
+      # /dev/nvme0n1p8: UUID="a1b2c3d4-e5f6-..." TYPE="ext4"
+      # Copy the UUID value.
+
+      ## 3. Add an entry to /etc/fstab
+
+      sudo nano /etc/fstab
+      # Add this line at the bottom (**replace the UUID, filesystem type, and username**):
+      UUID=a1b2c3d4-e5f6-xxxx  /home/yourusername/mnt/Data  ext4  defaults  0  
+
+      # use Ctrl+X to write/save the edits 
+      ```
+      
+
+      | Field | Value | Meaning |
+      |---------|---------|---------|
+      | Device | UUID=... | Identifies the partition reliably |
+      | Mount point | /home/user/mnt/Data | Where it appears in your system |
+      | Type | ext4 | Your filesystem (check `blkid` output) |
+      | Options | defaults | Standard read/write mount options |
+      | Dump | 0 | Don't include in dump backups |
+      | Pass | 2 | `fsck` checks this after the root filesystem (`1`) |    
+
+
+
+      - Test the fstab entry:
+        ```bash
+        sudo mount -a
+
+        # Verify it mounted:
+        df -h | grep nvme0n1p8 
+        ls ~/mnt/Data
+
+        # reboot
+        sudo rebot
+        ```
+
+  - **Option**: To set a mount point for an external drive
+    - For external drives, if the drive isn't connected at boot, the system can hang or fail to boot without the right options. Here's what to change:
+
+    - **To fix**: add `nofail`
+      ```bash
+      UUID=a1b2c3d4-e5f6-xxxx  /home/yourusername/mnt/Data  ext4  defaults,nofail  0  0
+      ``` 
+  - **Recommended**: 
+    - Add `x-systemd.automount`. For external drives, it waits until you actually access the mount point before mounting:
+
+      ```bash
+      UUID=a1b2c3d4-e5f6-xxxx  /home/yourusername/mnt/Data  ext4  defaults,nofail,x-systemd.automount  0  0
+      ```
+      This prevents any boot delay caused by the system waiting for the drive.
+
+    - For **NTFS external SSDs** (common for Windows-formatted drives)
+
+      ```bash
+      UUID=a1b2c3d4-e5f6-xxxx  /home/yourusername/mnt/Data  ntfs-3g  defaults,nofail,uid=1000,gid=1000,umask=022  0  0
+      ```
+
+    #### /etc/fstab boot table options
+
+    | Option | Effect | Recommended Use |
+    |----------|----------|----------|
+    | `nofail` | Don't error at boot if the drive is missing | External or removable drives |
+    | `x-systemd.automount` | Lazy-mount: only mounts when the path is first accessed | Large data drives that don't need to be mounted immediately |
+    | `x-systemd.device-timeout=5` | Stop waiting after 5 seconds if the drive is not found | Prevents long boot delays when a drive is disconnected |
 
 
 
@@ -145,59 +247,63 @@ System: Acer Nitro AN515-45
 
 ---
 ### 2. Quick Setting
-  - Clicking files or folders: `[Selects them]`
+- Clicking files or folders: `[Selects them]`
+
 
 ---      
 ### 3. Windows Management
-  **Note**:   
-  1. If left empty, it means that I left as [default values].
-  2. Belows are based on MX_KDE. Some options migh be not present in the newer Kubuntu 26/KDE 6
+**Note**:   
+1. If left empty, it means that I left as [default values].
+2. Belows are based on MX_KDE. Some options migh be not present in the newer Kubuntu 26/KDE 6
 
-  - Windows Behavior
-      - Focus: `Focus follows mouse`
-      - Delay: `500 ms`
-      - Focus stealing prevetion: `Low`
-      
-  - Decktop Effects
-      - Background Contrast
-      - [Screen Edge]
-        - Activation delay: `150 ms`
-        - Edge barrier: `150 px`
-      - [Sliding Popups]
-      - [Magic Lamp]
-      - Dialog Parent: `Unchecked`/`[Checked]` --> It really depends; for an older system I will change it to uncheck.
-      - Dim Inactive: set `[15-25]`
-      - [Window Aperture]
-      - Fade Desktop or `[Slide]`
-      - Window Open/Close Animation: `[Scale]`
-      - Screen Locking: After `[5 minute]`
-      - Virtual Desktops: `[1 Row]`
+- Windows Behavior
+    - Focus: `Focus follows mouse`
+    - Delay: `500 ms`
+    - Focus stealing prevetion: `Low`
     
+- Decktop Effects
+    - Background Contrast
+    - [Screen Edge]
+      - Activation delay: `150 ms`
+      - Edge barrier: `150 px`
+    - [Sliding Popups]
+    - [Magic Lamp]
+    - Dialog Parent: `Unchecked`/`[Checked]` --> It really depends; for an older system I will change it to uncheck.
+    - Dim Inactive: set `[15-25]`
+    - [Window Aperture]
+    - Fade Desktop or `[Slide]`
+    - Window Open/Close Animation: `[Scale]`
+    - Screen Locking: After `[5 minute]`
+    - Virtual Desktops: `[1 Row]`
+  
 
   - Windows Rules: If you have a previous windows rule, you can import here. 
 
 
 ### 4. Shortcut
-  **Note: Meta = Super Key = Win Key/Command Key**
+**Note: Meta = Super Key = Win Key/Command Key**
   
-  - Konsole: [**Ctrl + Alt(Opt) + T**]
-  - Spectacle: [**Meta + Shift + S**]
-  - Switch One Desktop to the Lefe: [**Ctrl + Meta + Left**]/[**Ctrl + Alt + Left**]
-  - Switch One Desktop to the Right: [**Ctrl + Meta + Right**]/[**Ctrl + Alt + Right**]
-  - Toggle Windows - **All Desktop**: [**Meta + Tab**]
-  - Window One Destop to the Left (Move the window to the Left Desktop): [**Meta + Left**]/**[Alt(or Opt) + Left]**
-  - Window One Destop to the Right (Move the window to the Right Desktop): [**Meta + Right**]/[**Alt (or Opt) + Right**]
-  - Lock Screen: **Meta + L**
+- Konsole: [**Ctrl + Alt(Opt) + T**]
+- Spectacle: [**Meta + Shift + S**]
+- Switch One Desktop to the Lefe: [**Ctrl + Meta + Left**]/[**Ctrl + Alt + Left**]
+- Switch One Desktop to the Right: [**Ctrl + Meta + Right**]/[**Ctrl + Alt + Right**]
+- Toggle Windows - **All Desktop**: [**Meta + Tab**]
+- Window One Destop to the Left (Move the window to the Left Desktop): [**Meta + Left**]/**[Alt(or Opt) + Left]**
+- Window One Destop to the Right (Move the window to the Right Desktop): [**Meta + Right**]/[**Alt (or Opt) + Right**]
+- Lock Screen: **Meta + L**
 
 
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
+
+---
 ### 5. Startup and Shutdown
-  - Login Screen (SDDM)
+- Login Screen (SDDM)
 
 
 ### 6. Notification:
-  - Hide after: `[3 seconds]`
-  - Uncheck: Keep popup open during progress
-  - Check/Uncheck: Notification Badge
+- Hide after: `[3 seconds]`
+- Uncheck: Keep popup open during progress
+- Check/Uncheck: Notification Badge
 
 ### 7. Display and Monitor
 - Night Color
@@ -206,11 +312,22 @@ System: Acer Nitro AN515-45
     - Begin at `[18:00]`
     - End at `[10:00]`
 
+- Screen Edge:
+    - Trigger quarter tiling in: [`Outer 5%`]
+    - Activation delay: [`350 ms`]
+    - Reactivation delay: [`400 ms`] 
+    - Edge barrier: [`50 ms`]
+
+
 
 ### 8. Input/Output 
   - Mouse & Touchpad > Screen Edges: [Activation delay] = `[125 ms]`
   - Sound > Configure Volumne Controls > Volume change step = `[2%]`
 
+
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
+
+---
 ### 9. KDE Wallet
   - A secure, integrated password management system for the KDE Plasma desktop environment that stores sensitive information like WiFi password, app credentials
   
@@ -260,6 +377,8 @@ System: Acer Nitro AN515-45
 **Note**: MX-25.1 already has pam integration, only need to copy`kdewallet.kwl` and `kdewallet.salt` over to the default kwalletd location
 
 
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
+
 ---
 ## Dolphin
   - The Kubuntu's download folder is default grouped by date (i feel not as easy to use):
@@ -292,8 +411,8 @@ System: Acer Nitro AN515-45
 | Foreground Faint | ![](https://placehold.co/40x20/EFF0F1/EFF0F1.png) | 239,240,241 | `#EFF0F1` |
 | Foreground Intense | ![](https://placehold.co/40x20/FFAA00/FFAA00.png) | 255,170,0 | `#FFAA00` |
 
----
 
+---
 #### ANSI Colors (0–7)
 
 | Color | Normal | Faint | Intense |
@@ -307,8 +426,10 @@ System: Acer Nitro AN515-45
 | Cyan (6) | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` | ![](https://placehold.co/40x20/1EF0E6/1EF0E6.png) `#1EF0E6` |
 | White (7) | ![](https://placehold.co/40x20/FCFCFC/FCFCFC.png) `#FCFCFC` | ![](https://placehold.co/40x20/63686D/63686D.png) `#63686D` | ![](https://placehold.co/40x20/FFFFFF/FFFFFF.png) `#FFFFFF` |
 
-  ---
 
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
+
+---
 #### Quick Reference
 
 | ANSI | Color | Hex |
@@ -322,6 +443,8 @@ System: Acer Nitro AN515-45
 | Color6 (Cyan) | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) | `#1EB4C8` |
 | Color7 (White) | ![](https://placehold.co/40x20/FCFCFC/FCFCFC.png) | `#FCFCFC` |
 
+
+---
 #### Bright Variants
 
 | ANSI | Color | Hex |
@@ -379,6 +502,7 @@ System: Acer Nitro AN515-45
     ```
 
 
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
 
 ---
 ## Kate  
@@ -401,4 +525,12 @@ System: Acer Nitro AN515-45
 
 2. [Create a bootable Ubuntu USB](https://documentation.ubuntu.com/desktop/en/latest/tutorial/try-ubuntu-desktop/#create-a-bootable-usb-stick:~:text=a%20bootable%20USB-,stick,-%C2%B6/) 👉 Make sur you selct the proper system for your case.
 
-3. [How to verify the SHA256](https://help.ubuntu.com/community/HowToSHA256SUM)
+3. [How to verify the SHA256](https://help.ubuntu.com/community/HowToSHA256SUM)  
+
+
+
+
+
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
+
+---
