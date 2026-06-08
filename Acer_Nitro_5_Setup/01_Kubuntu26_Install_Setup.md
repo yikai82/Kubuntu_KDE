@@ -114,7 +114,7 @@ System: Acer Nitro AN515-45
 
       ⚠️ ⚠️ Restart the computer between each step and boot into Windows before continuing to the next step. 
 
-      ⚠️ ⚠️ Moving Paritition could cause data loss, make sure you back up all the important data. We Do **NOT** need to delete any partition that created by the manufacturers/Windows.
+      ⚠️ ⚠️ Moving partitions could cause data loss. Make sure you back up all important data. There is absolutely **NO** need to delete any partition created by the manufacturer or by Windows.
 
       ⚠️ ⚠️ Make sure all the partitions were unmounted before moving them. In general, GParted does not allow moving a mounted partition.
 
@@ -234,7 +234,36 @@ System: Acer Nitro AN515-45
 ---
 ## System Setting
 
-### 1. Appearance
+### 1. Quick Setting
+- Clicking files or folders: `[Selects them]`
+
+
+---
+### 2. Input & Output > Keyboard > Shortcut
+**Note: Meta = Super Key = Win Key/Command Key**
+  
+- Konsole: [**Ctrl + Alt(Opt) + T**]
+- Spectacle: [**Meta + Shift + S**]
+- Switch One Desktop to the Lefe: [**Ctrl + Meta + Left**]/[**Ctrl + Alt + Left**]
+- Switch One Desktop to the Right: [**Ctrl + Meta + Right**]/[**Ctrl + Alt + Right**]
+- Toggle Windows - **All Desktop**: [**Meta + Tab**]
+- Window One Destop to the Left (Move the window to the Left Desktop): [**Meta + Left**]/**[Alt(or Opt) + Left]**
+- Window One Destop to the Right (Move the window to the Right Desktop): [**Meta + Right**]/[**Alt (or Opt) + Right**]
+- Lock Screen: **Meta + L**  
+
+💡 **Note:** You can export the keyboard shortcut by click the [**`Export`**] on the top right corner. 
+
+
+### 3. Input & Output 
+- Mouse & Touchpad > Screen Edges: [Activation delay] = `[125 ms]`
+- Sound > Configure Volumne Controls > Volume change step = `[2%]`
+
+
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
+
+
+---
+### 4. Appearance > Colors & Themes
 - Global Theme: Breeze Dark
     - Application Style: [Breeze] (left as it)
     - Plasma Style:
@@ -245,13 +274,12 @@ System: Acer Nitro AN515-45
     - Icon: Breeze Dark (left as it)
     - Splash Screen: MX-Dark
 
----
-### 2. Quick Setting
-- Clicking files or folders: `[Selects them]`
+- Login Screen (SDDM)
+  - Kubuntu > Change Background
 
 
 ---      
-### 3. Windows Management
+### 5. Apps % Windows > Windows Management
 **Note**:   
 1. If left empty, it means that I left as [default values].
 2. Belows are based on MX_KDE. Some options migh be not present in the newer Kubuntu 26/KDE 6
@@ -277,34 +305,19 @@ System: Acer Nitro AN515-45
     - Virtual Desktops: `[1 Row]`
   
 
-  - Windows Rules: If you have a previous windows rule, you can import here. 
+- Windows Rules: If you have a previous windows rule, you can import here. 
 
-
-### 4. Shortcut
-**Note: Meta = Super Key = Win Key/Command Key**
-  
-- Konsole: [**Ctrl + Alt(Opt) + T**]
-- Spectacle: [**Meta + Shift + S**]
-- Switch One Desktop to the Lefe: [**Ctrl + Meta + Left**]/[**Ctrl + Alt + Left**]
-- Switch One Desktop to the Right: [**Ctrl + Meta + Right**]/[**Ctrl + Alt + Right**]
-- Toggle Windows - **All Desktop**: [**Meta + Tab**]
-- Window One Destop to the Left (Move the window to the Left Desktop): [**Meta + Left**]/**[Alt(or Opt) + Left]**
-- Window One Destop to the Right (Move the window to the Right Desktop): [**Meta + Right**]/[**Alt (or Opt) + Right**]
-- Lock Screen: **Meta + L**
-
-
-<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
 
 ---
-### 5. Startup and Shutdown
-- Login Screen (SDDM)
-
-
 ### 6. Notification:
 - Hide after: `[3 seconds]`
 - Uncheck: Keep popup open during progress
 - Check/Uncheck: Notification Badge
 
+
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
+
+---
 ### 7. Display and Monitor
 - Night Color
     - Day:`[4700K]`
@@ -319,16 +332,8 @@ System: Acer Nitro AN515-45
     - Edge barrier: [`50 ms`]
 
 
-
-### 8. Input/Output 
-  - Mouse & Touchpad > Screen Edges: [Activation delay] = `[125 ms]`
-  - Sound > Configure Volumne Controls > Volume change step = `[2%]`
-
-
-<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
-
 ---
-### 9. KDE Wallet
+### 8. KDE Wallet
   - A secure, integrated password management system for the KDE Plasma desktop environment that stores sensitive information like WiFi password, app credentials
   
   - Only need if you want system to manage your password, or you have a previous wallet that you want to bring it over.
@@ -400,7 +405,9 @@ System: Acer Nitro AN515-45
     - Modified the color you prefer
     - My Setup: Konsole Breeze Color Palette
 
-#### Background & Foreground
+
+---
+### Background & Foreground
 
 | Name | Color | RGB | Hex |
 |------|-------|-----|-----|
@@ -413,7 +420,7 @@ System: Acer Nitro AN515-45
 
 
 ---
-#### ANSI Colors (0–7)
+### ANSI Colors (0–7)
 
 | Color | Normal | Faint | Intense |
 |-------|--------|-------|---------|
@@ -430,7 +437,7 @@ System: Acer Nitro AN515-45
 <sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
 
 ---
-#### Quick Reference
+### Quick Reference
 
 | ANSI | Color | Hex |
 |------|-------|-----|
@@ -445,7 +452,7 @@ System: Acer Nitro AN515-45
 
 
 ---
-#### Bright Variants
+### Bright Variants
 
 | ANSI | Color | Hex |
 |------|-------|-----|
