@@ -1,7 +1,14 @@
-# MX_KDE Desktop Environemnt Setup
+# MX_KDE Installation and Desktop Environemnt Setup
 
-#### Lastest Update: **`2026-05-15`**
+#### Lastest Update: **`2026-06-04`**
 
+## Install MX-25.1_KDE (or MX-23.6_KDE)
+
+- TBA - 
+
+
+
+---
 ## System Setting
 
 ### 1. Appearance
