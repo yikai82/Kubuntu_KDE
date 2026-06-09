@@ -1,0 +1,12 @@
+## .gitignore 2026-06-01
+# 
+
+# ignore folders
+draft_note/
+bash/
+network/
+
+# ignore files
+*.txt
+*.directory
+*bkup*.md
