@@ -54,9 +54,7 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
 * [4. Reference](#reference)  
 
 ---
-## Installation
-
-### Main Step: 
+## Installation Main Step 
 
 1. Read the information from the [Installation Roadmap](https://wiki.t2linux.org/roadmap/)
 
