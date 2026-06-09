@@ -3,7 +3,27 @@
 #### Lastest Update: **`2026-06-03`**
 
 > [!NOTE]  
-> This guide is mainly for installing `Kubuntu 26.04` on **Acer Nitro 5 AN515-45** (or similar models). 
+> 1. This guide is mainly for installing `Kubuntu 26.04` on **Acer Nitro 5 AN515-45** (or similar models). 
+> 2. KDE Plasma 6 desk enviroment stuck 🥶:
+>     - Try restart the KDE Plasma 6 environment in Kubuntu 26 through the terminal without losing the open applications
+>     ```bash
+>     systemctl restart --user plasma-plasmashell.service
+>     ``` 
+>
+> 2. KDE widgets are useful and look great, but on lower-resolution screens they can misalign after reboot when too many are used (my Kubuntu-T2 setup: 1920×1080 with 6–8 widgets). A simple workaround is adding a [`x`] seconds delay at login so the desktop environment fully initializes before loading widgets.    
+> <br>
+> **Option**: A more advance method is to preserve the widget location first and restore it after login, you can reference the script [here].
+
+> 
+> ```bash
+> #!/bin/bash
+> 
+> # Wait 10 seconds after login. This gives KDE Plasma, graphics drivers, and desktop services time to fully initialize before we modify anything. 
+>
+> sleep 10 
+> # You should test your system to find the optimal delay. For older systems (e.g., 2019 MacBook Pro), I set it to 15 seconds, while on my Acer Nitro 5 I use 5 seconds.
+> ```
+>
 
 
 > [!WARNING]  
@@ -34,7 +54,7 @@ Qt Version: 6.10.2
 Graphics Platform: Wayland  
 Processors: 16 × AMD Ryzen 7 5800H with Radeon Graphics    
 Memory: 16 GiB of RAM (15.0 GiB usable)  
-System: Acer Nitro AN515-45  
+System: AN515-45-R4LC
 
 ---
 ## Content
@@ -186,17 +206,30 @@ System: Acer Nitro AN515-45
 
 
 
-      - Test the fstab entry:
+      - ⚠️ ⚠️ Make sure to test the fstab before reboot, or the system might break if the fstab cannot be loaded properly.
+
         ```bash
+        systemctl daemon-reload # reload the daemon to update fstab table
         sudo mount -a
 
         # Verify it mounted:
         df -h | grep nvme0n1p8 
         ls ~/mnt/Data
+        
+        ## fix the ownership becuase the command `mount` is run by sudo, so as the partition
+        ls -la ~/mnt/   # check the ownership, the correct one should be **drwxrwxr-x** 
+
+        ## run the folowing command and relace <user> to your acoount name
+        ## 755: others can read
+        sudo chown -R user:user ~/mnt/Data   
+        chmod 755 /home/user/mnt/Data 
+
+        ls -la ~/mnt/  # check the ownership again, it should be **drwxrwxr-x** 
 
         # reboot
         sudo rebot
-        ```
+        ``` 
+
 
   - **Option**: To set a mount point for an external drive
     - For external drives, if the drive isn't connected at boot, the system can hang or fail to boot without the right options. Here's what to change:
