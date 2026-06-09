@@ -5,8 +5,12 @@
 draft_note/
 bash/
 network/
+MX_KDE_Setup/
+Kubuntu-T2_Setup/
+
 
 # ignore files
 *.txt
 *.directory
 *bkup*.md
+cheat_sheet/cheat_sheet_bash.md
