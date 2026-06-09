@@ -91,7 +91,7 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
     - Installing kernel for T2 support:  
 
 
-### Wi-Fi 
+## Wi-Fi 
 
 - Wi-Fi and Bluetooth: Use **Method 3**
 
@@ -113,7 +113,7 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
     - Confirm Wi-Fi is working 
 
 
-### Final Check
+## Final Check
 
 - Check Kubuntu and its Kernel version by running the following command in Konsole/bash:
 
