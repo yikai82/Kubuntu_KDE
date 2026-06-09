@@ -21,7 +21,7 @@ Fortunately, I found the [t2linux wiki](https://wiki.t2linux.org/) webpage, whic
 > Once you have successfully installed Linux-T2, `avoid blindly updating everything at once` as it may break the system or cause minor issues. In particular, be cautious with full system upgrades such as `sudo apt upgrade` or `sudo apt full-upgrade`. A safer approach is to update them in batches and only update what is necessary. This is not only specific to Linux-T2, but generally applies to any Linux distribution. 
 
 
-<i><p align="center"><b>Disclaimer</b>: I have made every effort to ensure the accuracy of this document, but errors may still be present, and the system may break with a wrong code  
+<i><p align="left"><b>Disclaimer</b>: I have made every effort to ensure the accuracy of this document, but errors may still be present, and the system may break with a wrong code  
 Feel free to leave any comments/thoughts. Thank you!<p></i>  
 
 <br>  
@@ -32,7 +32,7 @@ Feel free to leave any comments/thoughts. Thank you!<p></i>
 <div align="left">
   <div style="margin: 2px 0;">
     <img src="image/Linux2.svg" alt="Linux" width="50" style="vertical-align: middle; margin-right: 6px;">
-    <span style="vertical-align: middle;">Kubuntu-T2 24.04.2 LTS</span>
+    <span style="vertical-align: middle;">Ubuntu 26.04 LTS</span>
   </div>
   <div style="margin: 2px 0;">
     <img src="image/Noble.svg" alt="Noble" width="50" style="vertical-align: middle; margin-right: 6px;">
@@ -45,8 +45,16 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
 
  <!-- sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   -->
 
+
 ---
-## Installation Steps
+## Content
+* [1. Main Step](#main-step)  
+* [2. Wi-Fi](#wi-fig)  
+* [3. Final Check](#final-check)  
+* [4. Reference](#reference)  
+
+---
+## Installation
 
 ### Main Step: 
 
@@ -77,7 +85,7 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
     | Linux Mint       | T2 Mint releases         | [T2 Mint releases](https://github.com/t2linux/T2-Mint/releases/latest)                       |
      <br>
 
-3. Basic setup: ***I did not need to do any of these steps*** as this section is mainly for:
+3. [Basic setup](https://wiki.t2linux.org/guides/postinstall/): ***I did not need to do any of these steps*** as this section is mainly for:
 
     - If you have installed Linux using an official ISO, instead of a T2 ISO.
     - For those who wish to encrypt their disk drives using LUKS or some other similar software.
@@ -112,18 +120,35 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
 - Check Kubuntu and its Kernel version by running the following command in Konsole/bash:
 
     ```bash
-    # bash 
+    # bash
     {
-    echo "=== Kubuntu Version ==="
-    lsb_release -a
-    echo -e "\n=== Current Kernel ==="
-    uname -a
-    echo -e "\n=== Installed Kernels ==="
-    dpkg --list | grep linux-image
-    } > ~/kubuntu-t2-status-$(date +%Y%m%d).txt
+      echo "=== Kubuntu Version ==="
+      lsb_release -a
+
+      echo -e "\n=== Current Kernel ==="
+      uname -a
+
+      echo -e "\n=== Installed Kernels ==="
+      dpkg --list | grep linux-image
+
+      echo -e "\n=== KDE Plasma Version ==="
+      plasmashell --version 2>/dev/null || echo "plasmashell not found"
+
+      echo -e "\n=== KDE Frameworks Version ==="
+      dpkg -l | grep -i "libkf5coreaddons" | awk '{print $3}' || echo "KDE Frameworks info not found"
+
+      echo -e "\n=== Qt Version ==="
+      qtdiag --version 2>/dev/null || qmake --version 2>/dev/null || echo "Qt version info not found"
+
+      echo -e "\n=== CPU Info ==="
+      lscpu | grep -E "Model name|Architecture|CPU\(s\)|Thread|Core|Socket|MHz"
+
+      echo -e "\n=== Memory Size ==="
+      dmidecode -t memory | grep -E "Size|Type|Speed|Manufacturer|Part Number" | grep -v "No Module"
+    } > /home/$SUDO_USER/kubuntu-t2-status-$(date +%Y%m%d).txt
     ```
 
-    This will save everything into a timestamped file: kubuntu-t2-status-yyyymmdd.txt
+    This will save everything into a timestamped file: **kubuntu-t2-status-yyyymmdd.txt**
 
 - Testing internet, adjust screen brightness etc.  
 
