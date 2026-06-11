@@ -10,9 +10,14 @@
 >     systemctl restart --user plasma-plasmashell.service
 >     ``` 
 >
-> 2. KDE widgets are useful and look great, but on lower-resolution screens they can misalign after reboot when too many are used (my Kubuntu-T2 setup: 1920×1080 with 6–8 widgets). A simple workaround is adding a [`x`] seconds delay at login so the desktop environment fully initializes before loading widgets.    
+> 3. KDE widgets are useful and look great, but they can be misaligned when too many are used, specifically on lower-resolution screens (my Kubuntu-T2 setup: 1920×1080 with 6–8 widgets). 
+>
+>    - **My worst case:** Acer Nitro 5 with 7 widgets (GPUs usage, GPU VRAM, CPUs, RAM, SWAP, Hard Disk Activity, Internet Activity) on two different KDE Activities (a total of 14 widgets), it fails to start the KDE desktop and causes system freeze as all the widgets were query the same information, which occupied the specific pipeline for the KDE desktop initiation.   
+> 
+>     **Tips**: Keep it under 7 widgets per KDE Activity, and under 10 widgets in total. If this is your first time hearing about KDE Activities, check out thiss [article](https://blogs.kde.org/2026/01/17/streamline-plasma-with-activities-to-be-more-focused-and-productive/)  
+>     **To fix**:  A simple workaround is to add a [`x`] seconds delay at login so the desktop environment fully initializes before loading widgets.    
 > <br>
-> **Option**: A more advance method is to preserve the widget location first and restore it after login, you can reference the script [here].
+>     **Option**: A more advance method is to preserve the widget location first and restore it after login, you can reference the script [here].
 
 > 
 > ```bash
@@ -24,7 +29,7 @@
 > # You should test your system to find the optimal delay. For older systems (e.g., 2019 MacBook Pro), I set it to 15 seconds, while on my Acer Nitro 5 I use 5 seconds.
 > ```
 >
-
+>
 
 > [!WARNING]  
 > Once you have successfully installing Kubuntu, **`avoid blindly updating everything at once`** as it may break the system or cause minor issues. In particular, be cautious with full system upgrades such as `sudo apt upgrade` or `sudo apt full-upgrade`. A safer approach is to update them in batches and only update what is necessary. This is not only specific to Linux-T2, but generally applies to any Linux distribution. 
@@ -193,19 +198,19 @@ System: AN515-45-R4LC
 
       # use Ctrl+X to write/save the edits 
       ```
+
+      | Field       | Value               | Meaning                                                          |
+      | ----------- | ------------------- | ---------------------------------------------------------------- |
+      | Device      | UUID=...            | Identifies the partition reliably                                |
+      | Mount point | /home/user/mnt/Data | Where it appears in your system                                  |
+      | Type        | ext4                | Your filesystem (check `blkid` output)                           |
+      | Options     | defaults            | Standard read/write mount options                                |
+      | Options     | noatime             | Do not update file access timestamps; reduces unnecessary writes |
+      | Options     | nofail              | Continue booting even if the device is missing or fails to mount |
+      | Dump        | 0                   | Don't include in dump backups                                    |
+      | Pass        | 2                   | `fsck` checks this after the root filesystem (`1`)               |
       
-
-      | Field | Value | Meaning |
-      |---------|---------|---------|
-      | Device | UUID=... | Identifies the partition reliably |
-      | Mount point | /home/user/mnt/Data | Where it appears in your system |
-      | Type | ext4 | Your filesystem (check `blkid` output) |
-      | Options | defaults | Standard read/write mount options |
-      | Dump | 0 | Don't include in dump backups |
-      | Pass | 2 | `fsck` checks this after the root filesystem (`1`) |    
-
-
-
+      <br>
       - ⚠️ ⚠️ Make sure to test the fstab before reboot, or the system might break if the fstab cannot be loaded properly.
 
         ```bash
@@ -419,16 +424,18 @@ System: AN515-45-R4LC
 
 ---
 ## Dolphin
-  - The Kubuntu's download folder is default grouped by date (i feel not as easy to use):
+  - The Kubuntu's download folder is default grouped by date (I personally find it):
 
     - **To Fix:** 
-
       1) Right-click on the top toolbar.
       2) Select Configure Toolbars....Search for "`Show in Groups`" in the left column.
       3) Move it to the right column and click Apply.
       4) Click the button on your toolbar to toggle it off.
       5) Ensure "Remember display style for each folder" is checked.
-
+    - Customize Windows' title bar color scheme: **`Kvamtun`** 
+      - Open the application you want to control.
+      - Right-click the title bar Go to:
+        - More Actions --> Configure Special Window Settings  
 
 ---
 ## Konsole 
@@ -549,7 +556,7 @@ System: AN515-45-R4LC
 **Note:** If you do not see KvAdapta or KvamtumAlt, install it with `sudo apt install qt-style-kvantum-themes`
 - Settings  
     - Show Path in Title Bar
-    - Windows Color Schema (I presonally like the followings):
+    - Windows Color Scheme (I presonally like the followings):
         - Breeze Dark
         - **KvAdapta Dark**
         - KvFlatRed
@@ -558,6 +565,11 @@ System: AN515-45-R4LC
     - Configure Kate
         - Color Themes > Default Theme > Monokai > Save as Monokai2.  
       **Note:** You always need to create the selected theme as a new theme copy.
+
+- Customize Windows' title bar color scheme: **`KvBrown`** 
+  - Open the application you want to control.
+  - Right-click the title bar Go to:
+    - More Actions --> Configure Special Window Settings  
         
 ---
 ## Reference 
@@ -566,8 +578,6 @@ System: AN515-45-R4LC
 2. [Create a bootable Ubuntu USB](https://documentation.ubuntu.com/desktop/en/latest/tutorial/try-ubuntu-desktop/#create-a-bootable-usb-stick:~:text=a%20bootable%20USB-,stick,-%C2%B6/) 👉 Make sur you selct the proper system for your case.
 
 3. [How to verify the SHA256](https://help.ubuntu.com/community/HowToSHA256SUM)  
-
-
 
 
 

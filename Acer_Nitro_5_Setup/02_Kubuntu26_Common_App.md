@@ -5,9 +5,8 @@
 ---
 > [!NOTE]  
 > This guide is mainly for installing the following package on an **Acer Nitro 5 AN515-45** (or a similar model) running **Kubuntu 26.04**.
-
-
-
+>
+>
 
 <i><p align="left"><b>Disclaimer</b>: I have made every effort to ensure the accuracy of this document, but errors may still be present, and the system may break with a wrong code  
 Feel free to leave any comments/thoughts. Thank you!<p></i>  

@@ -52,9 +52,13 @@ System: Acer Nitro AN515-45
 
 ---
 ## Content
-- []
-- []
-- []
+- [Git Credentail Manager](#1-git-credentail-manager-gcm)
+- Miniconda/Miniforge
+  - [Miniconda](#21-miniconda)
+  - [MIniforge](#-22-option-miniforge)
+- [VScode](#3-vscode)
+- [LM Studio](#4-lm-studio)
+- [GIMP](#)
 
 ---
 ### 1. Git Credentail Manager (GCM)
