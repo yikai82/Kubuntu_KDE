@@ -16,20 +16,19 @@
 
 ---
 > [!NOTE]  
-> 1. The guide here is based on my system and my own experiece with Kubuntu-T2 and Kubuntu 26.-4 Feel free to follow and tweak as much as you need. But, if you are using AI as an assistant during this journey, make sure you try at least two differnt AI to help you along the way.  
+> 1. The guide here is based on my own machines and my own experiece with `Kubuntu-T2` and `Kubuntu 24.04 and 26.04`. Feel free to follow and tweak as much as you need. But, if you are using AI as an assistant during this journey, make sure you try at least two differnt AI to help you along the way or ask me any questions 🙋.
 >  
->     - My experience with troubling shooting Linux with AI is 50/50. 
->     - **Highly recommanded**: install [`timeshift`](/Acer_Nitro_5_Setup/02_Kubuntu26_Common_App.md#timeshift) and save your root system status before applying critical update. 
->     - Check out my Linux troubleshooting story with AI [here] and you will understand why
-
-
+>     - My experience with troubleshooting Linux with AI is 50/50. 
+>     - **Highly recommended**: Install **`timeshift`** and save a snapshot of your root (/) system before applying critical or any updates. If something breaks after an update, you can restore your root (/) system to its state before the update was applied.
+>
 
 > [!WARMING]
 > 1. If you are one of those people like to **keep things (system) up-to-date**, Linux might not be the best system for you. The reason is because Linux is mostly community driven so it might not have the same level of resources like Winodws and macOS to ensure almost nothing will break after applying the update. 
 > 
 > 2. Be exttremely careful when updating the system and avoid blindly updating everything at once` as it may break the system or cause minor issues. In particular, be cautious with full system upgrades such as `sudo apt upgrade` or `sudo apt full-upgrade`.   
 >
-> 3. Same rules for the removing package. Always run `apt rdepends --installed <package name>` to which installed packages need it.
+> 3. Same rules for the removing package. Always run `apt rdepends --installed <package name>` to check which installed packages need it (package name).
+> 
 >     ```bash
 >     ## example 
 >     $ apt rdepends --installed libibus-1.0-5
@@ -39,9 +38,11 @@
 >       Depends: plasma-desktop (>= 1.5.1)
 >     # plasma-desktop requires libibus-1.0.-5, removing it might cause it break
 >     ```
->     - Feel free to read MY ` Linux troubleshooting story with AI Part 1` [here]() to know more. 
+>     - Feel free to read MY ` Linux troubleshooting story with AI Part 1` [here](/Linux_Troubleshooting_Tales_with_AI/01_ibus_removal_story.md) to understand why I emphasize this. 
 
 
+
+**Disclaimer**: *I have made every effort to ensure the accuracy of this document, but errors may still be present. Feel free to leave comments and I will address them. Thank you!*
 
 ---
 ## Content  
@@ -53,9 +54,6 @@
 - [6. Title](link)  
 - [7. Title](link)  
 - [8. Title](link)  
-
-
-**Disclaimer**: *I have made every effort to ensure the accuracy of this document, but errors may still be present. Feel free to leave comments and I will address them. Thank you!*
 
 
 <sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub> 
@@ -86,23 +84,6 @@ System: AN515-45-R4LC
 <sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>  
 
 ---  
-## Notes and Important Concepts:
-> [!NOTE]  
-> Abcd...
-
-> [!IMPORTANT]  
-> <i><h4 align="center">Most of the business problems are not ML problems, and most of the ML problems are not business problems. Optimizing an ML model is not the same thing as optimizing a solution for a business problem </h4><p>  
-> <h5 align="right"> - from Production Lecture Day 1 : 36:58</h5><p>
->
-> <h4 align="center">A Machine Learning System is a system that can learn automatically to improve its performance</h4></i>  
-> <br>  
->
-> This capstone project showcases what I learned during a 16-week intensive AI/ML course offered by the University of Toronto’s Data Science Institute. I am not a financial professional, but I do invest in the market as a side pursuit, chasing the occasional moonshot 🌛 🏹
-
-> [!WARNING]  
-> abcdefghi...
->    
-
 
 <sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>  
 
