@@ -23,16 +23,16 @@
 > ```bash
 > #!/bin/bash
 > 
-> # Wait 10 seconds after login. This gives KDE Plasma, graphics drivers, and desktop services time to fully initialize before we modify anything. 
+> # Wait 5 seconds after login. This gives KDE Plasma, graphics drivers, and desktop services time to fully initialize before we modify anything. 
 >
-> sleep 10 
+> sleep 5 
 > # You should test your system to find the optimal delay. For older systems (e.g., 2019 MacBook Pro), I set it to 15 seconds, while on my Acer Nitro 5 I use 5 seconds.
 > ```
 >
 >
 
 > [!WARNING]  
-> Once you have successfully installing Kubuntu, **`avoid blindly updating everything at once`** as it may break the system or cause minor issues. In particular, be cautious with full system upgrades such as `sudo apt upgrade` or `sudo apt full-upgrade`. A safer approach is to update them in batches and only update what is necessary. This is not only specific to Linux-T2, but generally applies to any Linux distribution. 
+> Once you have successfully installing Kubuntu, **`avoid blindly updating everything at once`** as it may break the system or cause minor issues. In particular, be cautious with full system upgrades such as `sudo apt upgrade` or `sudo apt full-upgrade`. A safer approach is to update them in batches and only update what is necessary. This is not only specific to Kubuntu or MX Linux, but generally applies to any Linux distribution. 
 
 
 <i><p align="left"><b>Disclaimer</b>: I have made every effort to ensure the accuracy of this document, but errors may still be present, and the system may break with a wrong code  
@@ -64,11 +64,20 @@ System: AN515-45-R4LC
 ---
 ## Content
 
-- [1. Installation](#installation)  
-- [2. System Setting](#system-setting)  
-- [3. Dolphin](#dolphin)  
-- [4. Konsole](#konsole)  
-- [5. Kate](#kate)  
+- [Installation](#installation)  
+- [System Setting](#system-setting)  
+  - [1. Quick Setting](#1-quick-setting)
+  - [2. Keyboard > Shortcut](#2-input--output--keyboard--shortcut)
+  - [3. Input & Output](#3-input--output)
+  - [4. Appearance > Colors & Themes](#4-appearance--colors--themes)
+  - [5. Apps & Windows > Windows Management](#5-apps--windows--windows-management)
+  - [6. Notifications](#6-notification)
+  - [7. Display and Monitor](#7-display-and-monitor)
+  - [8. KDE Wallet](#8-kde-wallet)
+  - [9. System](#9-system)
+- [Dolphin](#dolphin)  
+- [Konsole](#konsole)  
+- [Kate](#kate)  
 
 ---
 ## Installation 
@@ -317,7 +326,7 @@ System: AN515-45-R4LC
 
 
 ---      
-### 5. Apps % Windows > Windows Management
+### 5. Apps & Windows > Windows Management
 **Note**:   
 1. If left empty, it means that I left as [default values].
 2. Belows are based on MX_KDE. Some options migh be not present in the newer Kubuntu 26/KDE 6
@@ -345,12 +354,10 @@ System: AN515-45-R4LC
 
 - Windows Rules: If you have a previous windows rule, you can import here. 
 
-
----
-### 6. Notification:
-- Hide after: `[3 seconds]`
-- Uncheck: Keep popup open during progress
-- Check/Uncheck: Notification Badge
+### 6. Notification
+  - Hide after: `[3 seconds]`
+  - Uncheck: Keep popup open during progress
+  - Check/Uncheck: Notification Badge
 
 
 <sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
@@ -421,6 +428,14 @@ System: AN515-45-R4LC
 
 
 <sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
+
+---
+## 9. System
+- Autostart: to set autostart for specific programs
+- Session
+  - Session Restore: [`on last logout`]
+
+
 
 ---
 ## Dolphin
