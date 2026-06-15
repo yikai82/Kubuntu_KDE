@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="[insert XXX IMAGE URL]" alt="Image" width="120">
+  <img src="image/Kubuntu_logo.png" alt="Kubuntu_logo" width="90">&emsp;&emsp;
+  <img src="image/kde-logo-white-blue-rounded-3000x3000.png" alt="kde_logo" width="90">
 </p>
 
 # 
