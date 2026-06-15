@@ -25,7 +25,7 @@
 >       2. If you think you are tech-savvy and comfortable enough, use the two-partition strategy: root(/) and home(/home) during the installation step. 
 >
 
-> [!WARMING]
+> [!WARNING]
 > 1. If you are one of those people like to **keep things (system) up-to-date**, Linux might not be the best system for you. The reason is because Linux is mostly community driven so it might not have the same level of resources like Winodws and macOS to ensure almost nothing will break after applying the update. 
 > 
 > 2. Be exttremely careful when updating the system and avoid blindly updating everything at once` as it may break the system or cause minor issues. In particular, be cautious with full system upgrades such as `sudo apt upgrade` or `sudo apt full-upgrade`.   
