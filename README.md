@@ -16,10 +16,13 @@
 
 ---
 > [!NOTE]  
-> 1. The guide here is based on my own machines and my own experiece with `Kubuntu-T2` and `Kubuntu 24.04 and 26.04`. Feel free to follow and tweak as much as you need. But, if you are using AI as an assistant during this journey, make sure you try at least two differnt AI to help you along the way or ask me any questions 🙋.
+> 1. The guide here is based on my own machines and my own experience with `Kubuntu 24.04 and 26.04`, `Kubuntu-T2`, and `MX-Linux_KDE`. Feel free to follow and tweak as much as you need.  <br>  
+> However, if you are using AI as an assistant during this journey, make sure you try at least two different AI chatbots to ensure their responses are similar enough, or you can also ask me here 🙋 or on popular forums like Super User.
 >  
 >     - My experience with troubleshooting Linux with AI is 50/50. 
->     - **Highly recommended**: Install **`timeshift`** and save a snapshot of your root (/) system before applying critical or any updates. If something breaks after an update, you can restore your root (/) system to its state before the update was applied.
+>     - **Highly recommended**: 
+>       1. Install [**`timeshift`**]() and save a snapshot of your root (/) system before applying any updates. If something breaks after an update, you can restore your root (/) system to its state before the update was applied. It is recommended that you save snapshots on a different partition or event an external hard drive. 
+>       2. If you think you are tech-savvy and comfortable enough, use the two-partition strategy: root(/) and home(/home) during the installation step. 
 >
 
 > [!WARMING]
@@ -44,9 +47,20 @@
 
 **Disclaimer**: *I have made every effort to ensure the accuracy of this document, but errors may still be present. Feel free to leave comments and I will address them. Thank you!*
 
+## System Requirement 
+
+I have tried three different Linux distributions (mostly Kubuntu, Kubuntu-T2 or MX Linux_KDE ) on different machines. One thing I would like to emphasize — your system dictates your choice of Linux distribution — I mean the hardware decides the software. 
+
+When troubleshooting system issues by reading solutions on the internet, keep in mind that a solution that works perfectly on one machine may cause issues on another machine, or even break the system if you are not careful. Before you try anything, make sure you back up your data and your root (/) partition.
+
+- MBP 2011  
+- MNP 2019
+- Acer Nitro 5 
+
+
 ---
 ## Content  
-- [1. Notes and Important Concepts](#key-note-and-important-concept)  
+- [1.]()  
 - [2. Title](link)  
 - [3. Title](link)  
 - [4. Title](link)  
@@ -54,63 +68,4 @@
 - [6. Title](link)  
 - [7. Title](link)  
 - [8. Title](link)  
-
-
-<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub> 
-
----
-## System
-
-<div align="left">
-  <div style="margin: 2px 0;">
-    <img src="image/Linux2.svg" alt="Linux" width="50" style="vertical-align: middle; margin-right: 6px;">
-    <span style="vertical-align: middle;">Ubuntu 26.04 LTS</span>
-  </div>
-  <div style="margin: 2px 0;">
-    Codename: <img src="image/Resolute.svg" alt="Resolute" width="70" style="vertical-align: middle; margin-right: 6px;">
-    <span style="vertical-align: middle;"></span>
-  </div>
-</div>  
-
-Kernel Version: **7.0.0-22-generic (64-bit)**  
-KDE Plasma Version: 6.6.4  
-KDE Frameworks Version: 6.24.0  
-Qt Version: 6.10.2  
-Graphics Platform: Wayland  
-Processors: 16 × AMD Ryzen 7 5800H with Radeon Graphics    
-Memory: 16 GiB of RAM (15.0 GiB usable)  
-System: AN515-45-R4LC
-
-<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>  
-
----  
-
-<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>  
-
----
-## Heading lv1
-
-###  1. heading lv2
-
-
----
-## Reference
-
-
-
-
-
-
-
-
----
-## Color Hex Code
-
-KDE Blue (primary): #1D99F3  
-KDE Dark Blue: #1B89D0  
-KDE Light Blue: #3DAEE9  
-Neutral Gray (backgrounds): #232629  
-Highlight Green (accent sometimes used): #27AE60  
-
-
 

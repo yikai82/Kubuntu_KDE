@@ -1,16 +1,22 @@
 ## .gitignore 2026-06-01
-# 
+# deb and sh files
+*.deb
+*.sh
+
+
 
 # ignore folders
 draft_note/
 bash/
 network/
 MX_KDE_Setup/
-Kubuntu-T2_Setup/
 
 
 # ignore files
 *.txt
+draft*
+*draft*
+
 *.directory
 *bkup*.md
 cheat_sheet/cheat_sheet_bash.md
