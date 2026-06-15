@@ -30,7 +30,7 @@
 > <h4 align="center"> your system dictates your choice of Linux distribution — the hardware decides the software. </h4>  
 > <br>       
 >         
-> 3. When troubleshooting system issues by reading solutions on the internet, keep in mind that a solution that works perfectly on one machine may cause issues on another machine, or even break the system if you are not careful. Before you try anything, make sure you back up your data and your root (/) partition.
+> 3. When troubleshooting system issues by reading solutions on the internet, keep in mind that **`a solution that works perfectly on one machine may cause issues on another machine, or even break the system if you are not careful`**. Before you try anything, make sure you back up your data and your root (/) partition.
 > 
 
 
