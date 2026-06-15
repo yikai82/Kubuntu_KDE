@@ -1,9 +1,9 @@
-<p align="center">
+<!-- <p align="center">
   <img src="[insert XXX IMAGE URL]" alt="Image" width="120">
-</p>
+</p> -->
 
  
-<h1 align="center">Linux Troubleshooting Tale with AIs </h1>
+<h1 align="center">Linux Troubleshooting Tale with AIs - 01</h1>
 <h3 align="center"> When AI wants me to remove packages - The Case of the Stubborn Library</h3>
 
 <!-- <p align="center">

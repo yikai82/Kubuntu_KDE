@@ -153,13 +153,12 @@
 
 ---
 ## Kate
- - TBA
+ - Similar setting with Kubuntu 26, see [here](/Acer_Nitro_5_Setup/01_Kubuntu26_Install_Setup.md)
 
 
 ---
 ## Kosole
-
- - TBA 
+ - Similar setting with Kubuntu 26, see [here](/Acer_Nitro_5_Setup/01_Kubuntu26_Install_Setup.md)
 
 
 
