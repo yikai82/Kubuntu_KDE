@@ -32,11 +32,11 @@ Feel free to leave any comments/thoughts. Thank you!<p></i>
 
 <div align="left">
   <div style="margin: 2px 0;">
-    <img src="image/Linux2.svg" alt="Linux" width="50" style="vertical-align: middle; margin-right: 6px;">
+    <img src="image/Linux.png" alt="Linux" width="50" style="vertical-align: middle; margin-right: 6px;">
     <span style="vertical-align: middle;">Ubuntu 26.04 LTS</span>
   </div>
   <div style="margin: 2px 0;">
-    Codename: <img src="image/Resolute.svg" alt="Resolute" width="70" style="vertical-align: middle; margin-right: 6px;">
+    Codename: <img src="image/Resolute.png" alt="Resolute" width="70" style="vertical-align: middle; margin-right: 6px;">
     <span style="vertical-align: middle;"></span>
   </div>
 </div>  
@@ -59,6 +59,7 @@ System: Acer Nitro AN515-45
 - [VScode](#3-vscode)
 - [LM Studio](#4-lm-studio)
 - [GIMP](#)
+- [Xournal++]
 
 ---
 ### 1. Git Credentail Manager (GCM)

@@ -17,6 +17,7 @@ network/
 draft*
 *draft*
 
+
 *.directory
 *bkup*.md
 cheat_sheet/cheat_sheet_bash.md
