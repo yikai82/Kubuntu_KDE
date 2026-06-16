@@ -439,18 +439,22 @@ System: AN515-45-R4LC
 
 ---
 ## Dolphin
-  - The Kubuntu's download folder is default grouped by date (I personally find it):
+- The Kubuntu's download folder is default grouped by date (I personally find it):
 
-    - **To Fix:** 
-      1) Right-click on the top toolbar.
-      2) Select Configure Toolbars....Search for "`Show in Groups`" in the left column.
-      3) Move it to the right column and click Apply.
-      4) Click the button on your toolbar to toggle it off.
-      5) Ensure "Remember display style for each folder" is checked.
-    - Customize Windows' title bar color scheme: **`Kvamtun`** 
-      - Open the application you want to control.
-      - Right-click the title bar Go to:
-        - More Actions --> Configure Special Window Settings  
+  - **To Fix:** 
+    1) Right-click on the top toolbar.
+    2) Select Configure Toolbars....Search for "`Show in Groups`" in the left column.
+    3) Move it to the right column and click Apply.
+    4) Click the button on your toolbar to toggle it off.
+    5) Ensure "Remember display style for each folder" is checked.
+
+- Customize Windows' title bar color scheme: **`Kvamtun`** 
+  - Open the application you want to control.
+  - Right-click the title bar Go to:
+    - More Actions --> Configure Special Window Settings  
+
+- Configure > Configure Dolphin (or press `Ctrl`+`Shift`+`,`)
+  - View > Details > Preview Icon Siz: [`level 3`]
 
 ---
 ## Konsole 

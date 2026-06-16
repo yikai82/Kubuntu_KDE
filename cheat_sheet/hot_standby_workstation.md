@@ -279,5 +279,3 @@ Tailscale creates a secure, private network (WireGuard-based) that connects devi
 - [Syncthing Official Documentation](https://docs.syncthing.net/)
 - [Syncthing Configuration Guide](https://docs.syncthing.net/v1.29.3/intro/getting-started.html#configuring)
 
----
-## Reference
