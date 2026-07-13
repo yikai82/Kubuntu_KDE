@@ -77,18 +77,42 @@ System: Acer Nitro AN515-45
 4. Create an conda environment: 3-5 minutes
 
     ```bash
-    # install new enviroment
+    # check update for conda first 
+    conda update -n base -c conda-forge conda  # 1-2 minutes
+    
+    # one-step installation
+    conda env create -f ./00_env_config_latest/ai_deploy_2026-06.yml -vv  
+    # -vv for detail verbose, 
+    # you dont need to name the enviromet name as conda will just read the yml file
+    
+    # two-steps installtion 
     conda create -n deploying_ai python=3.11  # 1-2 minutes
     conda activate deploying_ai # activate deploying_ai enviroment
 
-    conda update -n base -c conda-forge conda  # 1-2 minutes
-
     # update the conda environment
     conda env update -f ./file_name_2026-02-11.yml
-
-    # deploying_ai_2026-02-10_new.yml # much lighter
-    # deploying_ai_2026-02-11.yml  # much heavier -> more specific, good for reproduce the exactly environment 
     ```
-5. Test: run `conda activate your_env`
+5. Test the environment  
+
+    ```bash
+    conda activate your_env` 
+    python -c "import torch; print(torch.cuda.get_device_name(0))"  ## check if pytorch is avialable 
+    
+
+
+6. Clone an existiong enviroment as a backup in case something fails
+
+    ```bash
+    conda env list  # list all the current environment names
+    conda create --name env_name_new --clone env_name_xx # clone an existing conda library
+
+7.  Delete an unwanted environment
+
+    ```bash
+    conda remove -n env_name --all # remove all the package to make it clean
+    ```
+
+
+
 
 

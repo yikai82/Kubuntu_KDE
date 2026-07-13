@@ -2,7 +2,7 @@
 
 
 > [!NOTE]  
-> This guide is mainly for installing the following package on an **Acer Nitro 5 AN515-45** (or a similar model) running **Kubuntu 26.04**.
+> This guide is mainly for installing the following package for my own work on an **Acer Nitro 5 AN515-45** (or a similar model) running **Kubuntu 26.04**.
 
 
 
@@ -59,7 +59,9 @@ System: Acer Nitro AN515-45
 - [VScode](#3-vscode)
 - [LM Studio](#4-lm-studio)
 - [GIMP](#)
-- [Xournal++]
+- Infrastructure
+- [Docker Engine](#)
+- [Draw.io](#)
 
 ---
 ### 1. Git Credentail Manager (GCM)
@@ -74,7 +76,7 @@ System: Acer Nitro AN515-45
 
 
 | | Miniconda | Miniforge |
-|---|---|---|
+|-------|-------|-------|
 | Maintainer | Anaconda, Inc. | Community (conda-forge) |
 | Default channel | `defaults` (Anaconda) | `conda-forge` |
 | Commercial use | Restricted (large orgs) | Free |
@@ -86,207 +88,228 @@ System: Acer Nitro AN515-45
 👉 Dont want to read? Go to the [cheatsheet](/cheat_sheet/cheat_sheet_miniforge.md)!  
 
 ### 2.1 Miniconda   
-  - Link: https://www.anaconda.com/docs/getting-started/miniconda/install/linux-install
+- Link: https://www.anaconda.com/docs/getting-started/miniconda/install/linux-install
 
-  - Installation: 
+- Installation: 
+
+  ```bash
+  curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+  bash ./Miniconda3-latest-Linux-x86_64.sh
   
-    ```bash
-    curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  ## NOTE: During the installation, you will see the following question from terminal: 
+  ## installation finished.
+  ## Do you wish to update your shell profile to automatically initialize conda?
+  ## This will activate conda on startup and change the command prompt when activated.
 
-    bash ./Miniconda3-latest-Linux-x86_64.sh
-    
-    ## NOTE: During the installation, you will see the following question from terminal: 
-    ## installation finished.
-    ## Do you wish to update your shell profile to automatically initialize conda?
-    ## This will activate conda on startup and change the command prompt when activated.
-
-    ## >> Enter [yes] here if it is the **first time** you setup conda (can be miniconda or miniforge) so it will add the startup, 
-    
-    ## >> Enter [no] if you have install different conda or your prefer do it manually. 
-
-    Proceed with initialization? [yes|no] 
-    [no] >>> yes
-    
-    ```
+  ## >> Enter [yes] here if it is the **first time** you setup conda (can be miniconda or miniforge) so it will add the startup, 
   
-    - Typed [yes] to initialize conda after initallation or initialize manually later.
-    - Confirm conda installation by running:
+  ## >> Enter [no] if you have install different conda or your prefer do it manually. 
+
+  Proceed with initialization? [yes|no] 
+  [no] >>> yes
   
-    ```bash
-    conda --version # return 26.x.x
-    ```
+  ```
 
-  - **Conda initialization manually
+  - Typed [yes] to initialize conda after initallation or initialize manually later.
+  - Confirm conda installation by running:
 
-    1. Add $PATH by run:
-    ```bash
-    sudo nano ~/.bashrc
-    # add the following command to the bottom
-    # Add new $PATH
-    export PATH="$HOME/miniconda3/bin:$PATH"
-    # Ctrl+X, Yes to Write Buffer
-    source ~/.bashrc
-    ```
-    2. Initialize conda by running:
-    ```bash
-    conda --version
-    conda init bash
-    ```
+  ```bash
+  conda --version # return 26.x.x
+  ```
 
-    3. Disable auto activate conda base:
-    ```bash
-    conda config --set auto_activate_base false
-    ```
+- **Conda initialization manually
 
-  - To uninstall Miniconda, run:
-    ```bash
-    ~/miniconda3/uninstall.sh
-    ```
+  1. Add $PATH by run:
+  ```bash
+  sudo nano ~/.bashrc
+  # add the following command to the bottom
+  # Add new $PATH
+  export PATH="$HOME/miniconda3/bin:$PATH"
+  # Ctrl+X, Yes to Write Buffer
+  source ~/.bashrc
+  ```
+  2. Initialize conda by running:
+  ```bash
+  conda --version
+  conda init bash
+  ```
+
+  3. Disable auto activate conda base:
+  ```bash
+  conda config --set auto_activate_base false
+  ```
+
+- To uninstall Miniconda, run:
+  ```bash
+  ~/miniconda3/uninstall.sh
+  ```
+
+- Install specific conda environment: **deploying_ai**
+  ```bash 
+  ### Creata a specific environment: deploying ai
   
-  - Install specific conda environment: **deploying_ai**
-    ```bash 
-    ### Creata a specific environment: deploying ai
-    
-    # delete unwant env
-    conda remove -n deploying_ai --all # remove all the package to make it clean
+  # delete unwant env
+  conda remove -n deploying_ai --all # remove all the package to make it clean
 
-    # create a new conda env
-    conda create -n deploying_ai python=3.11
-    conda activate deploying_ai # activate deploying_ai enviroment
+  # create a new conda env
+  conda create -n deploying_ai python=3.11
+  conda activate deploying_ai # activate deploying_ai enviroment
 
-    # if require update conda
-    conda update -n base -c conda-forge conda
+  # if require update conda
+  conda update -n base -c conda-forge conda
 
-    # update the conda environment
-    conda env update -f ./file_name_2026-xx-xx.yml # update file name
-    # deploying_ai_2026-02-10_new.yml # much lighter
-    # deploying_ai_2026-02-11.yml  # much heavy 
-    ```
+  # update the conda environment
+  conda env update -f ./file_name_2026-xx-xx.yml # update file name
+  # deploying_ai_2026-02-10_new.yml # much lighter
+  # deploying_ai_2026-02-11.yml  # much heavy 
+  ```
+
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>  
 
 ---    
 ### 👉 2.2 Option: Miniforge
-  - **Major benefit: Better solver speed**  
+- **Major benefit: Better solver speed**  
 
-  - Link: https://github.com/conda-forge/miniforge  
+- Link: https://github.com/conda-forge/miniforge  
 
-  - Installation: 
+- Installation: 
 
-    ```bash
-    # download the package
-    curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-    
-    # install miniforge
-    bash Miniforge3-Linux-x86_64.sh
-
-    ## NOTE: During the installation, you will see the following question from terminal: 
-    ## installation finished.
-    ## Do you wish to update your shell profile to automatically initialize conda?
-    ## This will activate conda on startup and change the command prompt when activated.
-
-    ## >> Enter [yes] here if it is the **first time** you setup conda (can be miniconda or miniforge) so it will add the startup, 
-    
-    ## >> Enter [no] if you have installed different conda or your prefer do it manually. 
-
-    Proceed with initialization? [yes|no] 
-    [no] >>> yes
-
-    ## Close and Open the shell
-    ## If you'd prefer that conda's base environment not be activated on startup, run the following command when conda is activated:
-    
-    conda config --set auto_activate_base false
-    ## Close and Open the shell again
-
-
-
-    ```
-
-  - If you have installed different conda previously:
-
-    ```bash
-    which conda ## check which conda you are using
-
-    # initiate conda
-    cd ~/miniforge3/bin/  # navigate to bin folder under miniforge3 
-    conda init bash       # re-point conda to "/home/Yi-Kai/miniforge3/bin/conda" if you have previous install minoconda
-    
-
-  - Install conda python environment for your app:
-
-    ```bash
-    # install new enviroment
-    conda create -n deploying_ai python=3.11
-    conda activate deploying_ai # activate deploying_ai enviroment
-
-    # if require update conda
-    conda update -n base -c conda-forge conda
-
-    # update the conda environment
-    conda env update -f ./file_name_2026-02-11.yml
-    
-    # deploying_ai_2026-02-10_new.yml # much lighter
-    # deploying_ai_2026-02-11.yml  # much heavier -> more specific, good for reproduce the exactly environment   
-    ```
-  - Remove a conda python environemnt for your app:
-
-    ```bash
-    conda remove --name your_environment --all
-    ```
-
+  ```bash
+  # download the package
+  curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
   
-  - **Uninstall**
-    - 🛑 ⚠️ Carefully proceed the following step one-by-one. If you have any doubts, confirm with the original [source](https://github.com/conda-forge/miniforge#uninstall).
+  # install miniforge
+  bash Miniforge3-Linux-x86_64.sh
+
+  ## NOTE: During the installation, you will see the following question from terminal: 
+  ## installation finished.
+  ## Do you wish to update your shell profile to automatically initialize conda?
+  ## This will activate conda on startup and change the command prompt when activated.
+
+  ## >> Enter [yes] here if it is the **first time** you setup conda (can be miniconda or miniforge) so it will add the startup, 
+  
+  ## >> Enter [no] if you have installed different conda or your prefer do it manually. 
+
+  Proceed with initialization? [yes|no] 
+  [no] >>> yes
+
+  ## Close and Open the shell
+  ## If you'd prefer that conda's base environment not be activated on startup, run the following command when conda is activated:
+  
+  conda config --set auto_activate_base false
+  ## Close and Open the shell again
+  ```
+
+- If you have installed different conda previously:
+
+  ```bash
+  which conda ## check which conda you are using
+
+  # initiate conda
+  cd ~/miniforge3/bin/  # navigate to bin folder under miniforge3 
+  conda init bash       # re-point conda to "/home/Yi-Kai/miniforge3/bin/conda" if you have previous install minoconda
+  ```
+
+- Install conda python environment for your app:  
+   
+  - 💡 All roads lead to Rome—there are different ways to do it. The most efficient approach is to create it directly from a YAML file in a single step. Alternatively, you can create the Python environment first and then add the packages you need later.
     
-    - First, remove any modifications to your shell rc files that were made by Miniforge:  
+  - Single-Step vs Two-Step:   
 
-    ```bash
-    # Use this first command to see what rc files will be updated
-    conda init --reverse --dry-run
-    # Use this next command to take action on the rc files listed above
-    conda init --reverse
-    # Temporarily IGNORE the shell message: 
-    #       'For changes to take effect, close and re-open your current shell.',
-    # and CLOSE THE SHELL ONLY AFTER the 3rd step below is completed.
-    ```
-    
-    - Second, remove the folder and all subfolders where the base environment for Miniforge was installed:  
+  | Method | Pros | Cons |
+  | --- | --- | --- |
+  | **Create directly from a YAML file** | - Reproducible and consistent across machines <br> - Captures exact dependencies and versions<br>- Faster for onboarding or reuse | - Requires maintaining the YAML file <br> - Can become outdated if changes are made outside the file<br>- Dependency conflicts in the file may be harder to troubleshoot |    
+  | **Create the environment first, then install packages manually** | - More flexible during experimentation <br> - Easier to add or remove packages incrementally <br> - Good for learning and troubleshooting dependency issues | - Harder to reproduce later <br> - Team members may end up with slightly different environments <br>
 
-    ```bash
-    CONDA_BASE_ENVIRONMENT="$(conda info --base)"
-    echo The next command will delete all files in "${CONDA_BASE_ENVIRONMENT}"
-    # Warning, the rm command below is irreversible!
-    # check the output of the echo command above
-    # To make sure you are deleting the correct directory
-    rm -rf "${CONDA_BASE_ENVIRONMENT}"
-    ```
-    - Thrid, remove any global conda configuration files that are left behind.
-    
-    ```bash
-    echo ${HOME}/.condarc will be removed if it exists
-    rm -f "${HOME}/.condarc"
 
-    echo ${HOME}/.conda and underlying files will be removed if they exist.
-    rm -fr "${HOME}/.conda"
-    ```
-    - Last, manual clean up the .bashrc related to the mamba
-    ```bash
-    nano ~/.bashrc
+  ```bash
+  # check update for conda first 
+  conda update -n base -c conda-forge conda  # 1-2 minutes
 
-    ## you delete the following as the miniforge directory as been removed ## >>>>
+  # OPTION 1: one-step installation
+  conda env create -f ./00_env_config_latest/ai_deploy_2026-06.yml -vv  
+  # -vv for detail verbose, 
+  # you dont need to name the enviromet name as conda will just read the 'name: xxxx' section in the YML file
 
-    # >>> mamba initialize >>>
-    # !! Contents within this block are managed by 'mamba shell init' !!
-    export MAMBA_EXE='/home/yikai/miniforge3/bin/mamba';
-    export MAMBA_ROOT_PREFIX='/home/yikai/miniforge3';
-    __mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__mamba_setup"
-    else
-        alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
-    fi
-    unset __mamba_setup
-    # <<< mamba initialize <<<
-    ``` 
+  # OPTION 2: two-steps installtion 
+  conda create -n your_env_name python=3.12  # <-- change the python version if needed, 1-2 minutes
+  conda activate your_env_name # activate deploying_ai enviroment
 
+  # update the conda environment
+  conda env update -f ./file_name.yml
+  ```
+- Remove a conda python environemnt from your system:
+
+  ```bash
+  conda remove --name your_environment --all 
+  # OR 
+  conda remove --n your_environment --all
+  ```
+
+- To `clone` a conda environment: good way to create a backup 
+
+  ```bash
+  conda create --name new_env_name --clone old_env_name
+  ```
+
+
+
+- **Uninstall Miniforge**
+  - 🛑 ⚠️ Carefully proceed the following step one-by-one. If you have any doubts, confirm with the original [source](https://github.com/conda-forge/miniforge#uninstall).
+  
+  - First, remove any modifications to your shell rc files that were made by Miniforge:  
+
+  ```bash
+  # Use this first command to see what rc files will be updated
+  conda init --reverse --dry-run
+  # Use this next command to take action on the rc files listed above
+  conda init --reverse
+  # Temporarily IGNORE the shell message: 
+  #       'For changes to take effect, close and re-open your current shell.',
+  # and CLOSE THE SHELL ONLY AFTER the 3rd step below is completed.
+  ```
+  
+  - Second, remove the folder and all subfolders where the base environment for Miniforge was installed:  
+
+  ```bash
+  CONDA_BASE_ENVIRONMENT="$(conda info --base)"
+  echo The next command will delete all files in "${CONDA_BASE_ENVIRONMENT}"
+  # Warning, the rm command below is irreversible!
+  # check the output of the echo command above
+  # To make sure you are deleting the correct directory
+  rm -rf "${CONDA_BASE_ENVIRONMENT}"
+  ```
+  - Thrid, remove any global conda configuration files that are left behind.
+  
+  ```bash
+  echo ${HOME}/.condarc will be removed if it exists
+  rm -f "${HOME}/.condarc"
+
+  echo ${HOME}/.conda and underlying files will be removed if they exist.
+  rm -fr "${HOME}/.conda"
+  ```
+  - Last, manual clean up the .bashrc related to the mamba
+  ```bash
+  nano ~/.bashrc
+
+  ## you delete the following as the miniforge directory as been removed ## >>>>
+
+  # >>> mamba initialize >>>
+  # !! Contents within this block are managed by 'mamba shell init' !!
+  export MAMBA_EXE='/home/yikai/miniforge3/bin/mamba';
+  export MAMBA_ROOT_PREFIX='/home/yikai/miniforge3';
+  __mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__mamba_setup"
+  else
+      alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+  fi
+  unset __mamba_setup
+  # <<< mamba initialize <<<
+  ``` 
+
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>  
 
 ---  
 ### 3. VScode 
@@ -297,7 +320,7 @@ System: Acer Nitro AN515-45
 
 ---
 ### 4. LM Studio
-- Two version: deb vs appimage
+- Two version: `deb` vs `appimage`
 
 #### LM Studio: AppImage vs DEB Package Comparison
 
@@ -321,7 +344,9 @@ System: Acer Nitro AN515-45
 | **Best For** | Portability, testing, version pinning, non-Debian distros, no-root envs | Users wanting traditional package management and full system integration |  
 <br>
 
-**Summary** `AppImage` wins on portability, flexibility, and self-containment; `.deb` wins on system integration and security patching. For testing different LLMs, use `AppImage`; use `.deb` if you want it fully integrated for larger-scale work. 
+**Summary**: `AppImage` wins on portability, flexibility, and self-containment; `.deb` wins on system integration and security patching. For testing different LLMs, use `AppImage`; use `.deb` if you want it fully integrated for larger-scale work. 
+
+**Verdict**: Install **`AppImage`**
 
 <br>  
 
@@ -360,8 +385,52 @@ System: Acer Nitro AN515-45
     EOF
   ```
 
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>  
+
 ---
-### 4. R and RStudio (2025.09.2-418-amd64.deb): 
+### GIMP
+
+
+
+
+
+---
+### Draw.io
+
+
+
+
+#### Draw.io AppImage vs deb
+
+| Feature | AppImage | .deb |
+|---|---|---|
+| **Installation** | None — just download, `chmod +x`, run | Installed via `dpkg` / `apt` |
+| **System integration** | Minimal (no app menu entry by default) | Full — appears in app menu, `/usr/bin/drawio` in PATH |
+| **System changes** | None — completely self-contained | Writes to system directories |
+| **Updates** | Manual — download new file each time | Can use `apt` tooling |
+| **Portability** | High — single file, move it anywhere | Tied to the system |
+| **Command-line export** | Works but path is manual | Clean `drawio` command from anywhere |
+| **Distro compatibility** | Runs on most Linux distros — Arch, Debian, Fedora, Ubuntu, openSUSE, etc. | Best suited for Debian/Ubuntu-based distros |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+### 5. R and RStudio (2025.09.2-418-amd64.deb): 
   ```bash
   sudo apt update
   sudo apt install r-base
@@ -376,9 +445,21 @@ System: Acer Nitro AN515-45
   ```
 
 
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>  
+
+---
+###
 
 
-
+| Feature | AppImage | .deb |
+|---|---|---|
+| **Installation** | None — just download, `chmod +x`, run | Installed via `dpkg` / `apt` |
+| **System integration** | Minimal (no app menu entry by default) | Full — appears in app menu, `/usr/bin/drawio` in PATH |
+| **System changes** | None — completely self-contained | Writes to system directories |
+| **Updates** | Manual — download new file each time | Can use `apt` tooling |
+| **Portability** | High — single file, move it anywhere | Tied to the system |
+| **Command-line export** | Works but path is manual | Clean `drawio` command from anywhere |
+| **Distro compatibility** | Runs on most Linux distros — Arch, Debian, Fedora, Ubuntu, openSUSE, etc. | Best suited for Debian/Ubuntu-based distros |
 
 
 

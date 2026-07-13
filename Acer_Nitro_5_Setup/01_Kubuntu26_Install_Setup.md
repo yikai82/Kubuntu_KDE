@@ -366,7 +366,7 @@ System: AN515-45-R4LC
 ### 7. Display and Monitor
 - Night Color
     - Day:`[4700K]`
-    - NIght: `[3500K - 3700K]`
+    - NIght: `[3200K - 3500K]`
     - Begin at `[18:00]`
     - End at `[10:00]`
 

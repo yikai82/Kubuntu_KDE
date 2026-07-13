@@ -30,15 +30,13 @@ Feel free to leave any comments/thoughts. Thank you!<p></i>
 ### My MacBook Pro 2019 Linux-T2
 
 <div align="left">
-  <div style="margin: 2px 0;">
-    <img src="image/Linux2.svg" alt="Linux" width="50" style="vertical-align: middle; margin-right: 6px;">
-    <span style="vertical-align: middle;">Ubuntu 26.04 LTS</span>
-  </div>
-  <div style="margin: 2px 0;">
-    <img src="image/Noble.svg" alt="Noble" width="50" style="vertical-align: middle; margin-right: 6px;">
-    <span style="vertical-align: middle;">Codename: Noble</span>
-  </div>
-</div>  
+  <img src="image/Linux.png" alt="Linux" width="50" style="vertical-align: middle; margin-right: 6px;">
+  <span style="vertical-align: middle;">Ubuntu 26.04 LTS</span>
+  &nbsp;&nbsp;&nbsp;
+  <img src="image/Linux-T2_blue.png" alt="Linux-T2" width="90" style="vertical-align: middle; float: right;">
+  <br>
+  Codename: <img src="image/Noble.png" alt="Noble" width="50" style="vertical-align: middle;">
+</div>
 
 Release:	24.04  
 Kernel Version: **Linux 6.14.0-1-t2-noble**
@@ -91,6 +89,10 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
     - Installing kernel for T2 support:  
 
 
+
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>  
+
+---
 ## Wi-Fi 
 
 - Wi-Fi and Bluetooth: Use **Method 3**
@@ -113,6 +115,10 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
     - Confirm Wi-Fi is working 
 
 
+
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>  
+
+---
 ## Final Check
 
 - Check Kubuntu and its Kernel version by running the following command in Konsole/bash:
@@ -151,5 +157,8 @@ Kernel Version: **Linux 6.14.0-1-t2-noble**
 - Testing internet, adjust screen brightness etc.  
 
 
+<sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>  
+
+---
 ## Reference
 -  [t2linux wiki](https://wiki.t2linux.org/)
