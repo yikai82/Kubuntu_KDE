@@ -109,6 +109,11 @@ System:  AN515-45-R4LC
     # Run on both machines 
     systemctl --user enable syncthing
     systemctl --user start syncthing
+
+
+    # to disable the autostart
+    systemctl --user stop syncthing
+    systemctl --user disable syncthing
     ```
     📝 **Note**: Manually launch Syncthing after logging in gives real-time terminal logs, which are very useful for testing and troubleshooting. If Syncthing autostart is enabled, you can use the following commands to watch the logs:
 
@@ -150,10 +155,11 @@ System:  AN515-45-R4LC
       - Accept Folder on the Backup machine and repeat the similar configuration step. 
 
 6. Key Configuration Setting 
-    - Primary (Nitro 5)
+    - Primary (Nitro 5) 
       - Folder Type: **Send Only**
     - Backup Laptop
       - Folder Type: **Receive Only**
+    - This will keep the primary one as the source of truth. If you want to setup a hot swap work station, keep both as **Send and Receive**
 
     - #### 📌 Pull Order Comparision  
     <br>

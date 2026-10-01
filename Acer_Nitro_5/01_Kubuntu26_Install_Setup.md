@@ -1,9 +1,9 @@
-# Kubuntu 26.04 Installation and Desktop Setup
+# Kubuntu 26.04/MX-25.3 KDE Installation and Desktop Setup
 
-#### Lastest Update: **`2026-06-03`**
+#### Lastest Update: **`2026-09-30`**
 
 > [!NOTE]  
-> 1. This guide is mainly for installing `Kubuntu 26.04` on **Acer Nitro 5 AN515-45** (or similar models). 
+> 1. This guide is mainly for installing `Kubuntu 26.04` or `MX-25 KDE` on **Acer Nitro 5 AN515-45** (or similar models). 
 > 2. KDE Plasma 6 desk enviroment stuck 🥶:
 >     - Try restart the KDE Plasma 6 environment in Kubuntu 26 through the terminal without losing the open applications
 >     ```bash
@@ -17,19 +17,30 @@
 >     **Tips**: Keep it under 7 widgets per KDE Activity, and under 10 widgets in total. If this is your first time hearing about KDE Activities, check out thiss [article](https://blogs.kde.org/2026/01/17/streamline-plasma-with-activities-to-be-more-focused-and-productive/)  
 >     **To fix**:  A simple workaround is to add a [`x`] seconds delay at login so the desktop environment fully initializes before loading widgets.    
 > <br>
->     **Option**: A more advance method is to preserve the widget location first and restore it after login, you can reference the script [here].
+>     **Option**: A more advance method is to preserve the widget location first and restore it after login, you can reference the script below: .
 
 > 
-> ```bash
-> #!/bin/bash
+>   ```bash
+>   #!/bin/bash
 > 
-> # Wait 5 seconds after login. This gives KDE Plasma, graphics drivers, and desktop services time to fully initialize before we modify anything. 
+>   # Wait 5 seconds after login. This gives KDE Plasma, graphics drivers, and desktop services time to fully initialize before we modify anything. 
 >
-> sleep 5 
-> # You should test your system to find the optimal delay. For older systems (e.g., 2019 MacBook Pro), I set it to 15 seconds, while on my Acer Nitro 5 I use 5 seconds.
+>   sleep 5 
+>   # You should test your system to find the optimal delay. For older systems (e.g., 2019 MacBook Pro), I set it to 15 seconds, while on my Acer Nitro 5 I use 5 seconds.
 > ```
 >
 >
+
+> Trouble Shooting Guide:
+> 1. Fix `GRUB Boots the Wrong Linux Partition (Two Installs, One Shared ESP)`: [**Here**](/cheat_sheet/grub_wrong_partition_troubleshooting.md)  
+> 
+> 2. Fcitx5 + Zhuyin Installation Guide: [**Here**](/cheat_sheet/fcitx5_zhuyin_installation_guide.md)
+>
+>
+>
+>
+
+
 
 > [!WARNING]  
 > Once you have successfully installing Kubuntu, **`avoid blindly updating everything at once`** as it may break the system or cause minor issues. In particular, be cautious with full system upgrades such as `sudo apt upgrade` or `sudo apt full-upgrade`. A safer approach is to update them in batches and only update what is necessary. This is not only specific to Kubuntu or MX Linux, but generally applies to any Linux distribution. 
@@ -379,52 +390,105 @@ System: AN515-45-R4LC
 
 ---
 ### 8. KDE Wallet
-  - A secure, integrated password management system for the KDE Plasma desktop environment that stores sensitive information like WiFi password, app credentials
-  
-  - Only need if you want system to manage your password, or you have a previous wallet that you want to bring it over.
-  
-  
-  - Import previous KDE Wallet: 
-  
-    1. Copy the old wallet files:
+- A secure, integrated password management system for the KDE Plasma desktop environment that stores sensitive information like WiFi password, app credentials
 
-        ```bash
-        ~/.local/share/kwalletd/kdewallet.kwl
-        ~/.local/share/kwalletd/kdewallet.salt
+- Only need if you want system to manage your password, or you have a previous wallet that you want to bring it over.
+
+- Import previous KDE Wallet: 
+
+  1. Copy the old wallet files:
+
+      ```bash
+      ~/.local/share/kwalletd/kdewallet.kwl
+      ~/.local/share/kwalletd/kdewallet.salt
+      ```
+
+  2. Copy them into the same location on your new system
+
+  3. Unlock it with the old password
+  
+  4. Restart KWallet: Log out/log back in or run:  
+
+      ```bash
+      kwalletd6 &
+      ```  
+
+- If the above solution does not work, try the follow steps:
+  
+  - Enable KWallet + PAM integration: Some distros might only have KWalletManager and KWallet backend, not PAM. To install it, run:
+    
+    ```bash
+    apt search kwallet | grep pam # check if have pam
+    cat /etc/pam.d/sddm # looking for pam_kwallet.so
+    sudo apt install kwalletmanager pam-kwallet
+    
+    sudo apt install libpam-kwallet5 # confirm the version is compatiable
+    ```
+  - Hook PAM with the login manager: 
+
+    ```bash
+    sudo nano /etc/pam.d/lightdm
+
+    # Add these lines, Ctrl + X, Save buffer: Y
+    auth    optional    pam_kwallet5.so
+    session optional    pam_kwallet5.so auto_start
+      ```
+
+- ⚠️ Fix the issue when opening Chrome and the **KDE Wallet window requesting the user password** (Chrome asks for KDE Wallet password every launch)
+  - Cause: Chrome stores its "Safe Storage" key in KDE Wallet. If the wallet isn't unlocked at login, Chrome prompts for the password.
+
+  - Diagnose
+    1. Check if the wallet is open right after login (before launching Chrome):
+
         ```
+        qdbus6 org.kde.kwalletd6 /modules/kwalletd6 org.kde.KWallet.isOpen kdewallet
+        ```
+        `false` means it isn't unlocking at login.
 
-    2. Copy them into the same location on your new system
+    2. Check the PAM hooks:
+        ```
+        grep -i kwallet /etc/pam.d/sddm
+        ```
+        Expect `pam_kwallet5.so` lines for both `auth` and `session ... auto_start`.
 
-    3. Unlock it with the old password
-    
-    4. Restart KWallet: Log out/log back in or run:  
-
-        ```bash
-        kwalletd6 &
-        ```  
-
-  - If the above solution does not work, try the follow steps:
-    
-    - Enable KWallet + PAM integration: Some distros might only have KWalletManager and KWallet backend, not PAM. To install it, run:
+    3. Check that the PAM module is installed:
+        ```
+        dpkg -l | grep -i pam-kwallet
+        ```
+        Empty output means it's missing. The `-` prefix in the PAM lines makes PAM skip a missing module silently.
       
-      ```bash
-      apt search kwallet | grep pam # check if have pam
-      cat /etc/pam.d/sddm # looking for pam_kwallet.so
-      sudo apt install kwalletmanager pam-kwallet
-      
-      sudo apt install libpam-kwallet5 # confirm the version is compatiable
-      ```
-    - Hook PAM with the login manager: 
+    4. Check for autologin:
+        ```
+        grep -ri -A2 autologin /etc/sddm.conf /etc/sddm.conf.d/
+        ```
+        A `User=` line under `[Autologin]` means autologin is on, which breaks wallet unlock.
+    
+    
+    5. Check the wallet type:
+        ```
+        ls -l ~/.local/share/kwalletd/
+        ```
+        `kdewallet.kwl` plus `kdewallet.salt` means Blowfish (good). The GUI doesn't show the type.
 
-      ```bash
-      sudo nano /etc/pam.d/lightdm
+  - ⚒️ Fix
+    1. Install the PAM packages:
+        ```
+        sudo apt install libpam-kwallet-common libpam-kwallet5
+        ```
+    
+    2. In KDE Wallet Manager, select `kdewallet`, then Change Password. Set it to the **exact login password**.
+    
+    3. Make sure SDDM autologin is off (System Settings → Login Screen (SDDM)).
+    
+    4. Fully log out and back in, typing the password at the SDDM screen.
+    
+    5. Re-run the `isOpen` check. `true` means it worked.
 
-      # Add these lines, Ctrl + X, Save buffer: Y
-      auth    optional    pam_kwallet5.so
-      session optional    pam_kwallet5.so auto_start
-      ```
-
-**Note**: MX-25.1 already has pam integration, only need to copy`kdewallet.kwl` and `kdewallet.salt` over to the default kwalletd location
+**Note**: 
+- MX-25.1 already has pam integration, only need to copy`kdewallet.kwl` and `kdewallet.salt` over to the default kwalletd location
+- MX-25.3 need to install 
+- Don't recreate the wallet. Chrome's Safe Storage key lives in the existing one.
+- The wallet password must match the login password, or PAM can't unlock it.
 
 
 <sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
@@ -475,22 +539,22 @@ System: AN515-45-R4LC
 | Background Intense | ![](https://placehold.co/40x20/000000/000000.png) | 0,0,0 | `#000000` |
 | Foreground | ![](https://placehold.co/40x20/FCFCFC/FCFCFC.png) | 252,252,252 | `#FCFCFC` |
 | Foreground Faint | ![](https://placehold.co/40x20/EFF0F1/EFF0F1.png) | 239,240,241 | `#EFF0F1` |
-| Foreground Intense | ![](https://placehold.co/40x20/FFAA00/FFAA00.png) | 255,170,0 | `#FFAA00` |
-
+| Foreground Intense1 | ![](https://placehold.co/40x20/FFAA00/FFAA00.png) | 255,170,0 | `#FFAA00` |
+| Foreground Intense2 | ![](https://placehold.co/40x20/3CAAF0/3CFFA0.png) | 60,70,240 | `#3CAAF0` |
 
 ---
 ### ANSI Colors (0–7)
 
-| Color | Normal | Faint | Intense |
-|-------|--------|-------|---------|
-| Black (0) | ![](https://placehold.co/40x20/232627/232627.png) `#232627` | ![](https://placehold.co/40x20/31363B/31363B.png) `#31363B` | ![](https://placehold.co/40x20/7F8C8D/7F8C8D.png) `#7F8C8D` |
-| Red (1) | ![](https://placehold.co/40x20/ED1515/ED1515.png) `#ED1515` | ![](https://placehold.co/40x20/783228/783228.png) `#783228` | ![](https://placehold.co/40x20/EB4632/EB4632.png) `#EB4632` |
-| Green (2) | ![](https://placehold.co/40x20/41C841/41C841.png) `#41C841` | ![](https://placehold.co/40x20/5AC878/5AC878.png) `#5AC878` | ![](https://placehold.co/40x20/3CDC3C/3CDC3C.png) `#3CDC3C` |
-| Yellow (3) | ![](https://placehold.co/40x20/F67400/F67400.png) `#F67400` | ![](https://placehold.co/40x20/B65619/B65619.png) `#B65619` | ![](https://placehold.co/40x20/FDBC4B/FDBC4B.png) `#FDBC4B` |
-| Blue (4) | ![](https://placehold.co/40x20/3296F0/3296F0.png) `#3296F0` | ![](https://placehold.co/40x20/1B668F/1B668F.png) `#1B668F` | ![](https://placehold.co/40x20/3CAAF0/3CAAF0.png) `#3CAAF0` |
-| Magenta (5) | ![](https://placehold.co/40x20/F096D2/F096D2.png) `#F096D2` | ![](https://placehold.co/40x20/B170FC/B170FC.png) `#B170FC` | ![](https://placehold.co/40x20/FF55FF/FF55FF.png) `#FF55FF` |
-| Cyan (6) | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` | ![](https://placehold.co/40x20/1EF0E6/1EF0E6.png) `#1EF0E6` |
-| White (7) | ![](https://placehold.co/40x20/FCFCFC/FCFCFC.png) `#FCFCFC` | ![](https://placehold.co/40x20/63686D/63686D.png) `#63686D` | ![](https://placehold.co/40x20/FFFFFF/FFFFFF.png) `#FFFFFF` |
+| Color | Normal | Intense | Faint |
+|-------|--------|---------|-------|
+| Black (0) | ![](https://placehold.co/40x20/232627/232627.png) `#232627` | ![](https://placehold.co/40x20/7F8C8D/7F8C8D.png) `#7F8C8D` | ![](https://placehold.co/40x20/31363B/31363B.png) `#31363B` |
+| Red (1) | ![](https://placehold.co/40x20/EB4632/EB4632.png) `#EB4632` | ![](https://placehold.co/40x20/F11616/F11616.png) `#F11616` | ![](https://placehold.co/40x20/C0392B/C0392B.png) `#C0392B` |
+| Green (2) | ![](https://placehold.co/40x20/33BA33/33BA33.png) `#33BA33` | ![](https://placehold.co/40x20/3CDC3C/3CDC3C.png) `#3CDC3C` | ![](https://placehold.co/40x20/5AC878/5AC878.png) `#5AC878` |
+| Yellow (3) | ![](https://placehold.co/40x20/F67400/F67400.png) `#F67400` | ![](https://placehold.co/40x20/FDBC4B/FDBC4B.png) `#FDBC4B` | ![](https://placehold.co/40x20/B65619/B65619.png) `#B65619` |
+| Blue (4) | ![](https://placehold.co/40x20/3296F0/3296F0.png) `#3296F0` | ![](https://placehold.co/40x20/3CAAF0/3CAAF0.png) `#3CAAF0` | ![](https://placehold.co/40x20/1B668F/1B668F.png) `#1B668F` |
+| Magenta (5) | ![](https://placehold.co/40x20/#C37AAC/#C37AAC.png) `#C37AAC` | ![](https://placehold.co/40x20/FF55FF/FF55FF.png) `#FF55FF` | ![](https://placehold.co/40x20/B170FC/B170FC.png) `#B170FC` |
+| Cyan (6) | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` | ![](https://placehold.co/40x20/1EF0E6/1EF0E6.png) `#1EF0E6` | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` |
+| White (7) | ![](https://placehold.co/40x20/FCFCFC/FCFCFC.png) `#FCFCFC` | ![](https://placehold.co/40x20/FFFFFF/FFFFFF.png) `#FFFFFF` | ![](https://placehold.co/40x20/63686D/63686D.png) `#63686D` |
 
 
 <sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
