@@ -261,8 +261,10 @@ System: AN515-45-R4LC
 
     - **To fix**: add `nofail`
       ```bash
-      UUID=a1b2c3d4-e5f6-xxxx  /home/yourusername/mnt/Data  ext4  defaults,nofail  0  0
-      ``` 
+      UUID=a1b2c3d4-e5f6-xxxx  /home/yourusername/mnt/Data  ext4  defaults,nofail  0  0  #⚠️ no space between the `default` and `nofail`
+      ```  
+
+
   - **Recommended**: 
     - Add `x-systemd.automount`. For external drives, it waits until you actually access the mount point before mounting:
 
@@ -277,7 +279,7 @@ System: AN515-45-R4LC
       UUID=a1b2c3d4-e5f6-xxxx  /home/yourusername/mnt/Data  ntfs-3g  defaults,nofail,uid=1000,gid=1000,umask=022  0  0
       ```
 
-    #### /etc/fstab boot table options
+ - **fstab boot table options**
 
     | Option | Effect | Recommended Use |
     |----------|----------|----------|
@@ -285,6 +287,22 @@ System: AN515-45-R4LC
     | `x-systemd.automount` | Lazy-mount: only mounts when the path is first accessed | Large data drives that don't need to be mounted immediately |
     | `x-systemd.device-timeout=5` | Stop waiting after 5 seconds if the drive is not found | Prevents long boot delays when a drive is disconnected |
 
+      ```bash
+      # /etc/fstab example
+      # Pluggable devices are handled by uDev, they are not in fstab
+      UUID=cb67a219-xxxx-...... / ext4 noatime,lazytime 1 1
+      UUID=7E7B-xxxx /boot/efi vfat noatime,lazytime,dmask=0002,fmask=0113 0 0
+      UUID=59deedf7-xxxx-...... /home ext4 noatime,lazytime 1 2
+      UUID=59f54320-xxxx-...... swap swap discard=once 0 2
+      UUID=ae6d81d7-xxxx-...... /home/Yi-Kai/mnt/Data ext4 defaults 0 2
+      # internal HDD, no auto mount
+      UUID=e91fd89e-xxxx-...... /home/Yi-Kai/mnt/DataBase-FUN hfsplus ro,force,uid=1000,gid=1000,umask=022,noauto,nofail 0 0
+      UUID=eb948e89-xxxx-...... /home/Yi-Kai/mnt/BKUP btrfs defaults,noauto,nofail 0 0
+      # internal HDD, auto mount
+      UUID=f5c2aca3-xxxx-...... /home/Yi-Kai/mnt/Asclepius btrfs defaults,nofail,x-systemd.automount 0 0
+      # ⚠️ no space for defaults,ro,<option1>,<option2>...
+
+      ```
 
 
 <sub>[↥ back to top](#content)&emsp;|&emsp;[Return Main Page 🏠](/README.md) </sub>   
