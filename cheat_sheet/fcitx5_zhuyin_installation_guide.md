@@ -105,7 +105,7 @@ export XMODIFIERS=@im=fcitx  # remove
 
 ```bash
 sudo apt update
-sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-qt5 fcitx5-chewing
+sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-qt5　fcitx5-frontend-qt6 fcitx5-chewing # need both frontend-qt5 and frontend-qt6 for app is using qt5/qt6 to work! 
 ```
 
 **What each package does:**
@@ -194,17 +194,81 @@ If Fcitx5 is set up correctly via Wayland, Chrome will work **without any extra 
 
 ## Troubleshooting
 
-**Fcitx5 warning about GTK_IM_MODULE / QT_IM_MODULE:**
-→ Remove those env vars from `~/.profile` (see Step 4)
+### Fcitx5 warning about GTK_IM_MODULE / QT_IM_MODULE  
 
-**Chewing not showing in configtool:**
-→ Run `sudo apt install fcitx5-chewing` then restart configtool
+- Remove those env vars from `~/.profile` (see Step 4)
 
-**Fcitx5 not starting:**
-→ Make sure "Fcitx 5" is set as Virtual Keyboard in System Settings (Step 6)
+### Chewing not showing in configtool   
 
-**Input not working in Chrome:**
-→ Confirm you're on Wayland: `echo $XDG_SESSION_TYPE` should return `wayland`
+- Run `sudo apt install fcitx5-chewing` then restart configtool
+
+### Fcitx5 not starting 
+
+- Make sure "Fcitx 5" is set as Virtual Keyboard in System Settings (Step 6)
+
+### Input not working in Chrome
+
+- Confirm you're on Wayland: `echo $XDG_SESSION_TYPE` should return `wayland`
+
+### Fix Cannot type Chinese in Kate but the chinese input is working in Chrome
+
+- other symptom: kate unicode does not work
+
+```bash
+## suspect the ibus is loaded somewheere
+
+## check the following additional location 
+grep -r "GTK_IM_MODULE\|QT_IM_MODULE\|XMODIFIERS" \
+  ~/.profile \
+  ~/.bashrc \
+  ~/.bash_profile \
+  ~/.xprofile \
+  ~/.xinitrc \
+  ~/.config/environment.d/ \
+  ~/.config/plasma-workspace/env/ \
+  /etc/environment \
+  /etc/profile.d/ \
+  2>/dev/null
+
+# Check Current Session Values
+echo "GTK: $GTK_IM_MODULE"
+echo "QT: $QT_IM_MODULE"
+echo "XMOD: $XMODIFIERS"
+
+# Check systemd user environment (KDE Wayland uses this!)
+systemctl --user show-environment | grep -i "im\|module\|xmod"
+
+# Check im-config system default
+cat /etc/default/im-config
+
+# Check im-config's active ibus script
+cat /usr/share/im-config/data/*ibus* 2>/dev/null
+
+# Check KDE plasma autostart env scripts
+ls ~/.config/plasma-workspace/env/ 2>/dev/null
+ls /etc/X11/Xsession.d/ | grep im
+```
+
+**output**:
+```bash
+~$ systemctl --user show-environment | grep -i "im\|module\|xmod"
+# output:
+XDG_RUNTIME_DIR=/run/user/1000 
+CLUTTER_IM_MODULE=ibus 
+GTK_IM_MODULE=ibus 
+IM_CONFIG_PHASE=1 
+QT_IM_MODULE=ibus 
+XMODIFIERS=@im=ibus 
+```
+
+**Found**: It’s im-config auto mode picking IBus!
+
+**Solution**: 
+```bash
+im-config -n fcitx5 # This creates ~/.config/im-config/config explicitly telling im-config to use fcitx5 — overriding the auto detection permanently!
+sudo reboot
+```
+
 
 ---
 

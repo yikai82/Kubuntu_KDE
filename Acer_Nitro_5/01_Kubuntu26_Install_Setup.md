@@ -4,6 +4,7 @@
 
 > [!NOTE]  
 > 1. This guide is mainly for installing `Kubuntu 26.04` or `MX-25 KDE` on **Acer Nitro 5 AN515-45** (or similar models). 
+> 
 > 2. KDE Plasma 6 desk enviroment stuck 🥶:
 >     - Try restart the KDE Plasma 6 environment in Kubuntu 26 through the terminal without losing the open applications
 >     ```bash
@@ -561,17 +562,17 @@ System: AN515-45-R4LC
 | Foreground Intense2 | ![](https://placehold.co/40x20/3CAAF0/3CFFA0.png) | 60,70,240 | `#3CAAF0` |
 
 ---
-### ANSI Colors (0–7)
+### ANSI Colors (0–7) Setting 1 - MX-25.3 Breeze
 
 | Color | Normal | Intense | Faint |
 |-------|--------|---------|-------|
 | Black (0) | ![](https://placehold.co/40x20/232627/232627.png) `#232627` | ![](https://placehold.co/40x20/7F8C8D/7F8C8D.png) `#7F8C8D` | ![](https://placehold.co/40x20/31363B/31363B.png) `#31363B` |
 | Red (1) | ![](https://placehold.co/40x20/EB4632/EB4632.png) `#EB4632` | ![](https://placehold.co/40x20/F11616/F11616.png) `#F11616` | ![](https://placehold.co/40x20/C0392B/C0392B.png) `#C0392B` |
 | Green (2) | ![](https://placehold.co/40x20/33BA33/33BA33.png) `#33BA33` | ![](https://placehold.co/40x20/3CDC3C/3CDC3C.png) `#3CDC3C` | ![](https://placehold.co/40x20/5AC878/5AC878.png) `#5AC878` |
-| Yellow (3) | ![](https://placehold.co/40x20/F67400/F67400.png) `#F67400` | ![](https://placehold.co/40x20/FDBC4B/FDBC4B.png) `#FDBC4B` | ![](https://placehold.co/40x20/B65619/B65619.png) `#B65619` |
-| Blue (4) | ![](https://placehold.co/40x20/3296F0/3296F0.png) `#3296F0` | ![](https://placehold.co/40x20/3CAAF0/3CAAF0.png) `#3CAAF0` | ![](https://placehold.co/40x20/1B668F/1B668F.png) `#1B668F` |
+| Yellow (3) | ![](https://placehold.co/40x20/F67400/F67400.png) `#F67400` | ![](https://placehold.co/40x20/FDBC4B/FDBC4B.png) `#FDBC4B` | ![](https://placehold.co/40x20/B65619/D6641D.png) `#d6641d` |
+| Blue (4) | ![](https://placehold.co/40x20/3296F0/2E8CDE.png) `#2e8cde` | ![](https://placehold.co/40x20/3CAAF0/3296F0.png) `3296f0` | ![](https://placehold.co/40x20/1B668F/1B668F.png) `#1B668F` |
 | Magenta (5) | ![](https://placehold.co/40x20/#C37AAC/#C37AAC.png) `#C37AAC` | ![](https://placehold.co/40x20/FF55FF/FF55FF.png) `#FF55FF` | ![](https://placehold.co/40x20/B170FC/B170FC.png) `#B170FC` |
-| Cyan (6) | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` | ![](https://placehold.co/40x20/1EF0E6/1EF0E6.png) `#1EF0E6` | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` |
+| Cyan (6) | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` | ![](https://placehold.co/40x20/58.png) `#58bfff` | ![](https://placehold.co/40x20/1EB4C8/1EB4C8.png) `#1EB4C8` |
 | White (7) | ![](https://placehold.co/40x20/FCFCFC/FCFCFC.png) `#FCFCFC` | ![](https://placehold.co/40x20/FFFFFF/FFFFFF.png) `#FFFFFF` | ![](https://placehold.co/40x20/63686D/63686D.png) `#63686D` |
 
 
@@ -672,6 +673,8 @@ System: AN515-45-R4LC
   - Right-click the title bar Go to:
     - More Actions --> Configure Special Window Settings  
         
+- **Prefer text color**: ![](https://placehold.co/30x15/CACACA/CACACA.png) [`#cacaca`] 
+
 ---
 ## Reference 
 1. [Kubuntu/Download](https://kubuntu.org/download/)

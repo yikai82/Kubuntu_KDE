@@ -1,4 +1,10 @@
 ## .gitignore 2026-06-01
+
+# system files
+*.directory
+.vscode
+
+
 # deb and sh files
 *.deb
 *.sh
@@ -16,8 +22,10 @@ network/
 *.txt
 draft*
 *draft*
-
-
-*.directory
 *bkup*.md
 cheat_sheet/cheat_sheet_bash.md
+
+
+
+
+

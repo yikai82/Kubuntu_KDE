@@ -4,7 +4,7 @@
 
 ---
 > [!NOTE]  
-> This guide is mainly for installing the following package on an **Acer Nitro 5 AN515-45** (or a similar model) running **Kubuntu 26.04**.
+> This guide is mainly for installing the following package on an **Acer Nitro 5 AN515-45** (or a similar model) running **Kubuntu 26.04** or **MX-23.6_KDE**.
 >
 >
 
