@@ -276,7 +276,8 @@ System: Acer Nitro AN515-45
 
 - Installation:
 ```bash
-sudo apt install backintime
+sudo apt install backintime-qt
+
 ```
 
 ---
@@ -394,8 +395,9 @@ curl -fsSL https://tailscale.com/install.sh | sh
 ### yt-dlp
   - Create the virtual environment and activate it
   ```bash
+  python3 --version # check your python3 version first
   sudo apt update
-  sudo apt install python3.14-venv
+  sudo apt install python3.xx-venv # match your system python version 
   python3 -m venv yt-dl-env
   source yt-dl-env/bin/activate
   ```

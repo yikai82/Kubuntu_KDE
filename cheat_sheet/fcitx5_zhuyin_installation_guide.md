@@ -104,8 +104,9 @@ export XMODIFIERS=@im=fcitx  # remove
 ## Step 5 — Install Fcitx5
 
 ```bash
-sudo apt update
-sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-qt5　fcitx5-frontend-qt6 fcitx5-chewing # need both frontend-qt5 and frontend-qt6 for app is using qt5/qt6 to work! 
+sudo apt update 
+sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-qt5 fcitx5-frontend-qt6 fcitx5-chewing
+# need both frontend-qt5 and frontend-qt6 for app is using qt5/qt6 to work! 
 ```
 
 **What each package does:**

@@ -57,6 +57,7 @@ System: Acer Nitro AN515-45
   - [Miniconda](#21-miniconda)
   - [MIniforge](#-22-option-miniforge)
 - [VScode](#3-vscode)
+- [Cloudfared]()
 - [LM Studio](#4-lm-studio)
 - [GIMP](#)
 - Infrastructure
@@ -319,8 +320,33 @@ System: Acer Nitro AN515-45
 
 
 ---
-### 4. LM Studio
-- Two version: `deb` vs `appimage`
+### 4. Cloudfared
+
+- Installation: 
+```bash
+wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb  # download the lastest version of cloudfare
+sudo dpkg -i cloudflared-linux-amd64.deb
+cloudflared --version
+```
+
+- Update Cloudfared (using apt for update)
+```bash
+# Add the lastest cloudfared repo into the apt list, the example below uses bookworm, might need to change bookworm to other distro if needed.
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] \
+https://pkg.cloudflare.com/cloudflared bookworm main" \
+| sudo tee /etc/apt/sources.list.d/cloudflare.list
+
+sudo apt update
+sudo apt install --only-upgrade cloudflared
+cloudflared --version
+sudo systemctl restart cloudflared
+
+```
+
+
+---
+### 5. LM Studio
+- Two options: `deb` vs `appimage`
 
 #### LM Studio: AppImage vs DEB Package Comparison
 
